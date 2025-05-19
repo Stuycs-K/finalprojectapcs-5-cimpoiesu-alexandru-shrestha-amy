@@ -22,7 +22,6 @@ Classes:
 - randomBlock: generates a random tetris block with their specific color
 - move: use left/right arrows keys to move
 - accelerate: allows block to move down quicker using down arrow key
-- increaseSpeed: increases the private speed instance variable (when level increases, etc.)
 
 2. Game
 - startGame: sets the game into motion, runs a loop to start blocks
