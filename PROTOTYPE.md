@@ -23,6 +23,14 @@ Classes:
 - accelerate: allows block to move down quicker using down arrow key
 - increaseSpeed: increases the private speed instance variable (when level increases, etc.)
 
+2. Game
+- startGame: sets the game into motion, runs a loop to start blocks
+- nextBlock: shows a screen with the next block
+- getLevel: returns the current level (increase by 1 each 10 rows cleared)
+- getScore: returns the current score (increase by 1 each 1 row cleared)
+- clearRow: clears the row that is filled and adds one to score
+- endGame: shows end game screen, possibly offering a restart option
+
     
 # Intended pacing:
 
