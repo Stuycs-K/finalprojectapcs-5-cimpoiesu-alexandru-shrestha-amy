@@ -1,8 +1,8 @@
 
 # Technical Details:
-
-(CHANGE THIS!!!!!)
-
+Period 5
+(Placeholder group name)
+We intend on creating tetris where you can rotate blocks, store blocks and so that you can see the upcoming block so you know whether you want to use the next block. There will be a pause menu and a startup menu that will allow you to organically move between games or pause it if you don’t want to play anymore. There will also be levels that ramp up in speed after you reach certain point thresholds and the level and blocks placed will also be displayed. Like tetris the blocks will be different colored and the row will end up disappearing if the row gets completely filled. There will also be only a limited amount of possible blocks that can be made and the order that they come will be randomly picked.
 A description of your technical design. This should include: 
    
 How you will be using the topics covered in class in the project.
