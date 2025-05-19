@@ -31,6 +31,7 @@ Classes:
 - clearRow: clears the row that is filled and adds one to score
 - endGame: shows end game screen, possibly offering a restart option
 
+![Our tetris UML diagram with classes Block and Game.](https://github.com/Stuycs-K/finalprojectapcs-5-cimpoiesu-alexandru-shrestha-amy/blob/main/Start(1).png)
     
 # Intended pacing:
 
