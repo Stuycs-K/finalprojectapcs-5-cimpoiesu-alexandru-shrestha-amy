@@ -15,6 +15,13 @@ How you will be using the topics covered in class in the project.
 
 UML Diagrams and descriptions of key algorithms, classes, and how things fit together.
 
+Classes:
+1. Block
+- turn: allows block to turn right with the up arrow key
+- randomBlock: generates a random tetris block with their specific color
+- move: use left/right arrows keys to move
+- accelerate: allows block to move down quicker using down arrow key
+- increaseSpeed: increases the private speed instance variable (when level increases, etc.)
 
     
 # Intended pacing:
