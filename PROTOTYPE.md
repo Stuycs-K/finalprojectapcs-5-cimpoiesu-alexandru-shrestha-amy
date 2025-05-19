@@ -6,6 +6,7 @@ We intend on creating tetris where you can rotate blocks, store blocks and so th
 
 The MVP will essentially be tetris but mainly focused on making sure the block class works correctly and it will be focused on their creation, randomization, and making sure that they move down and the row gets deleted when the row is full of them. Along with this there will still be all the variables like level and score since these are relatively simple to implement and will help make our prototype more fleshed out. Adding on, there will also be progression in levels since that doesn't change the code very much. Basically, it will be a barebones showcase of the block object and it will properly interact with the others to make sure that the general function of the game is working.
 
+Nice to have- Pause button, restart button, different colored blocks, storing blocks/seeing next block.
 
 A description of your technical design. This should include: 
    
