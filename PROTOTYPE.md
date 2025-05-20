@@ -38,7 +38,15 @@ Classes:
 How you are breaking down the project and who is responsible for which parts.
 
 Alex: responsible for coding half of the Block and Game classes (turn, accelerate, startGame, getLevel, endGame)
+
 Amy: responsible for coding half of the Block and Game classes (randomBlock, move, nextBlock, getScore, clearRow)
 
-A timeline with expected completion dates of parts of the project. (CHANGE THIS!!!!!)
+Timeline: 
 
+Fri, May 23 - complete prototype, begin working on Block class
+
+Fri, May 30 - complete Block class, start Game class
+
+Wed, June 4 - complete Game class
+
+Fri, June 6 - finish Game class, add additional features if extra time
