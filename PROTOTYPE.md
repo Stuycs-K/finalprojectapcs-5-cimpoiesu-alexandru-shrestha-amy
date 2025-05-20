@@ -1,16 +1,14 @@
 
 # Technical Details:
-Period 5
-(Placeholder group name)
-We intend on creating tetris where you can rotate blocks, store blocks and so that you can see the upcoming block so you know whether you want to use the next block. There will be a pause menu and a startup menu that will allow you to organically move between games or pause it if you don’t want to play anymore. There will also be levels that ramp up in speed after you reach certain point thresholds and the level and blocks placed will also be displayed. Like tetris the blocks will be different colored and the row will end up disappearing if the row gets completely filled. There will also be only a limited amount of possible blocks that can be made and the order that they come will be randomly picked.
+Period 5  
+(Placeholder group name)  
+We intend on creating tetris where you can rotate blocks, store blocks and so that you can see the upcoming block so you know whether you want to use the next block. There will be a pause menu and a startup menu that will allow you to organically move between games or pause it if you don’t want to play anymore. There will also be levels that ramp up in speed after you reach certain point thresholds and the level and blocks placed will also be displayed. Like tetris the blocks will be different colored and the row will end up disappearing if the row gets completely filled. There will also be only a limited amount of possible blocks that can be made and the order that they come will be randomly picked.  
 
-The MVP will essentially be tetris but mainly focused on making sure the block class works correctly and it will be focused on their creation, randomization, and making sure that they move down and the row gets deleted when the row is full of them. Along with this there will still be all the variables like level and score since these are relatively simple to implement and will help make our prototype more fleshed out. Adding on, there will also be progression in levels since that doesn't change the code very much. Basically, it will be a barebones showcase of the block object and it will properly interact with the others to make sure that the general function of the game is working.
+The MVP will essentially be tetris but mainly focused on making sure the block class works correctly and it will be focused on their creation, randomization, and making sure that they move down and the row gets deleted when the row is full of them. Along with this there will still be all the variables like level and score since these are relatively simple to implement and will help make our prototype more fleshed out. Adding on, there will also be progression in levels since that doesn't change the code very much. Basically, it will be a barebones showcase of the block object and it will properly interact with the others to make sure that the general function of the game is working.  
 
-Nice to have- Pause button, restart button, different colored blocks, storing blocks/seeing next block.
+Nice to have - Pause button, restart button, different colored blocks, storing blocks/seeing next block.  
 
-A description of your technical design. This should include: 
-   
-How you will be using the topics covered in class in the project.
+We will be using Processing in order to easily visualize the game. We will be using keyPressed(), setup(), draw(), keyCode and various other labs to supplement the creation of this game. In addition, we will be utilizing our knowledge of classes, private/public instance variables, loops, etc. we learned in class to fully flesh out a working tetris game.
      
 # Project Design
 
@@ -34,14 +32,11 @@ Classes:
 ![Our tetris UML diagram with classes Block and Game.](https://github.com/Stuycs-K/finalprojectapcs-5-cimpoiesu-alexandru-shrestha-amy/blob/main/Start(1).png)
     
 # Intended pacing:
+_Alex_: responsible for coding half of the Block and Game classes (turn, accelerate, startGame, getLevel, endGame)
 
-How you are breaking down the project and who is responsible for which parts.
+_Amy_: responsible for coding half of the Block and Game classes (randomBlock, move, nextBlock, getScore, clearRow)
 
-**Alex**: responsible for coding half of the Block and Game classes (turn, accelerate, startGame, getLevel, endGame)
-
-**Amy**: responsible for coding half of the Block and Game classes (randomBlock, move, nextBlock, getScore, clearRow)
-
-__Timeline:__  
+## TIMELINE: 
 **Thu, May 23** - complete prototype, begin working on Block class  
 **Mon, May 26** - complete Block class, start Game class  
 **Fri, May 30** - complete Game class, add additional features if extra time available  
