@@ -31,7 +31,7 @@ Classes:
 - getLevel: returns the current level (increase by 1 each 10 rows cleared)
 - getScore: returns the current score (increase by 1 each 1 row cleared)
 - clearRow: clears the row that is filled and adds one to score
-- endGame: shows end game screen, possibly offering a restart option
+- endGame: shows end game screen, possibly offering a restart option  
 --> Possible code: use an ArrayList to keep track of the entire board. Fill entire board with 0. When a block is added, update board and increase the number of the board. Each block has a different number. When a row is filled (row[i][j] > 0) then we can clear the row by setting all numbers in the row equal to zero.
 
 ![Our tetris UML diagram with classes Block and Game.](https://github.com/Stuycs-K/finalprojectapcs-5-cimpoiesu-alexandru-shrestha-amy/blob/main/Start(2).png)
