@@ -41,11 +41,8 @@ Alex: responsible for coding half of the Block and Game classes (turn, accelerat
 
 Amy: responsible for coding half of the Block and Game classes (randomBlock, move, nextBlock, getScore, clearRow)
 
-Timeline: 
-Thu, May 23 - complete prototype, begin working on Block class
-
-Mon, May 26 - complete Block class, start Game class
-
-Fri, May 30 - complete Game class, add additional features if extra time available
-
+** Timeline: **
+Thu, May 23 - complete prototype, begin working on Block class  
+Mon, May 26 - complete Block class, start Game class  
+Fri, May 30 - complete Game class, add additional features if extra time available  
 Sun, June 1 - record final project video
