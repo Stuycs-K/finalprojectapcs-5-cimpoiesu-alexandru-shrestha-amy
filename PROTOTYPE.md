@@ -34,7 +34,7 @@ Classes:
 - endGame: shows end game screen, possibly offering a restart option  
 --> Possible code: use an ArrayList to keep track of the entire board. Fill entire board with 0. When a block is added, update board and increase the number of the board. Each block has a different number. When a row is filled (row[i][j] > 0) then we can clear the row by setting all numbers in the row equal to zero.
 
-![Our tetris UML diagram with classes Block and Game.](https://github.com/Stuycs-K/finalprojectapcs-5-cimpoiesu-alexandru-shrestha-amy/blob/main/Start.png)
+![Our tetris UML diagram with classes Block and Game.](https://github.com/Stuycs-K/finalprojectapcs-5-cimpoiesu-alexandru-shrestha-amy/blob/main/UML.png)
     
 # Intended pacing:
 _Alex_: responsible for coding half of the Block and Game classes (turn, accelerate, startGame, getLevel, endGame)
