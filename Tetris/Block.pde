@@ -5,4 +5,16 @@ public class Block{
     this.angle = angle;
     this.speed = speed;
   }
+  
+  public void turn() {
+    
+  }
+  
+  public void accelerate(int num) {
+    
+  }
+  
+  public void removeR(int row) {
+    
+  }
 }
