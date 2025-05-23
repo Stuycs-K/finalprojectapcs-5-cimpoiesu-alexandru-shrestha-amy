@@ -1,3 +1,10 @@
-private int level;
-private int score;
-private ArrayList<Block>
+void setup(){
+  size(500,750);
+  //startGame();
+  delay(1000);
+  endGame();
+}
+
+void draw(){
+  
+}

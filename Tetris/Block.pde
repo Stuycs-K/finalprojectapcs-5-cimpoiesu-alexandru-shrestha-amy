@@ -6,6 +6,7 @@ public class Block {
     this.speed = speed;
   }
   
+<<<<<<< HEAD
   public int getAngle() {
     return angle;
   }
@@ -55,4 +56,5 @@ public class Block {
       }
     }
   }
+>>>>>>> ead0ea019d97a8546adc3764074227d2523331f9
 }
