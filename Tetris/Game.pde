@@ -6,6 +6,12 @@ public int getLevel(){
   return level; 
 }
 
-public int getSCore(){
+public int getScore(){
    return score; 
+}
+
+public void endGame(){
+  clear();
+  text("Game Over",214,375);
+  
 }
