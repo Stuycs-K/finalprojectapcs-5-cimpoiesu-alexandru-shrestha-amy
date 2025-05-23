@@ -5,4 +5,5 @@ public class Block{
     this.angle = angle;
     this.speed = speed;
   }
+  
 }
