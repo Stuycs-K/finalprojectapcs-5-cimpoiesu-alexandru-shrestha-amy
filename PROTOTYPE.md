@@ -49,6 +49,6 @@ _Amy_: responsible for coding half of the Block and Game classes (randomBlock, m
 ## TIMELINE: 
 **Thu, May 23** - complete prototype, begin working on Block class  
 **Mon, May 26** - complete Block class, start Game class  
-~Fri, May 30 - complete Game class, add additional features if extra time available~
+~Fri, May 30 - complete Game class, add additional features if extra time available~  
 **Sun, June 1** - complete Game class with MVP  
 **Sun, June 8** - add additional features/nice to have features, record final project video  
