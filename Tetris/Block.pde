@@ -11,8 +11,8 @@ public class Block {
     this.speed = 10;
     this.x = 15;
     this.y = 15;
-    this.bWidth = 10;
-    this.bHeight = 20;
+    this.bWidth = 25;
+    this.bHeight = 40;
   }
   
   public Block(int speed, int angle){
@@ -71,6 +71,7 @@ public class Block {
  
   
   // increase the speed of the block depending on 
+  // need to fix so it only accelerates while key is being pressed
   public void accelerate(int num) {
     speed += num;
   }
