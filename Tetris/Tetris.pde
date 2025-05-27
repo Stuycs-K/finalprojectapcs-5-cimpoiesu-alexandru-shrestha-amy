@@ -19,9 +19,10 @@ void setup(){
 }
 
 void draw(){
+  background(255);
   stroke(0);
   fill(200,100);
-  rect(0,0,width/2,height/2);
+  rect(15,15,width-30,635);
   for (int i = 0; i < board.getBlocks().size(); i++) {
     board.getBlocks(i).update();
     board.getBlocks(i).display();

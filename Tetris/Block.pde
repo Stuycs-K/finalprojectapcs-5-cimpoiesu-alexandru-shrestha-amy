@@ -7,11 +7,15 @@ public class Block {
   public Block(){
     this.angle = 0;
     this.speed = 10;
+    this.x = 15;
+    this.y = 15;
   }
   
   public Block(int speed, int angle){
     this.angle = angle;
     this.speed = speed;
+    this.x = 15;
+    this.y = 15;
   }
   
   public int getAngle() {
@@ -46,11 +50,12 @@ public class Block {
   
   // automatic falling of block
   public void update() {
-    y -= speed;
+    y += speed/10;
   }
   
   public void display() {
-    rect(0,0,10,20);
+    fill(20,100);
+    rect(x,y,10,20);
   }
  
   
