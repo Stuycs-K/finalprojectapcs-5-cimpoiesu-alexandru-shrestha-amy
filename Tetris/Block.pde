@@ -31,10 +31,9 @@ public class Block {
   
   // move the block left or right by one
   // depending on key
-  /*
-  public void move(int pos) {
+  public void move(int posx, int posy) {
     // right
-    if (pos > 0) {
+    if (posx > 0 && posy > 0) {
       
     }
     // left
@@ -42,7 +41,6 @@ public class Block {
       
     }
   }
-  */
  
   
   // increase the speed of the block depending on 

@@ -20,15 +20,15 @@ public void keyPressed() {
       }
       else if (keyCode == DOWN) {
         // accelerate
-        board.get(i).accelerate(10);
+        board.getBlocks(i).accelerate(10);
       }
       else if (keyCode == LEFT) {
         // move left
-        board.get(i).move(-1);
+        board.getBlocks(i).move(-1,0);
       }
       else if (keyCode == RIGHT) {
         // move right
-        board.get(i).move(1);
+        board.getBlocks(i).move(1,0);
       }
     }
   }
