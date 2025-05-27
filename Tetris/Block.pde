@@ -3,7 +3,7 @@ public class Block {
   private int speed;
   
   public Block(){
-    this.angle = 10;
+    this.angle = 0;
     this.speed = 10;
   }
   
@@ -31,6 +31,7 @@ public class Block {
   
   // move the block left or right by one
   // depending on key
+  /*
   public void move(int pos) {
     // right
     if (pos > 0) {
@@ -41,6 +42,7 @@ public class Block {
       
     }
   }
+  */
  
   
   // increase the speed of the block depending on 
