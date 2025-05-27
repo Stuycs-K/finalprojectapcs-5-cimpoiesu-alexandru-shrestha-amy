@@ -1,7 +1,14 @@
 public class Game{
 private int level;
 private int score;
-private ArrayList<Block> blocks;
+private ArrayList<Block> blocks; 
+//private Block[][][] blocks;
+public Game(){
+  this.blocks = new ArrayList<Block>();
+  blocks.add(new Block());
+  this.level = 1;
+  this.score = 0;
+}
 
 public int getLevel(){
   return level; 
