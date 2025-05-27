@@ -7,11 +7,8 @@ void setup(){
   //startGame();
   delay(1000);
   //endGame();
-<<<<<<< HEAD
   draw();
-=======
   text("Level " + getLevel(),0,0);
->>>>>>> alexandru-cimpoiesu
 }
 
 void draw(){
