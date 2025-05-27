@@ -8,25 +8,41 @@ void setup(){
   //delay(1000);
   //endGame();
   draw();
+}
+
+void draw(){
+  background(255);
   
   // text for score + level
   fill(0);
   textSize(15);
   String levelStr = "Level: " + board.getLevel();
-  text(levelStr, 40, 670);
+  text(levelStr, 20, 670);
   String scoreStr = "Score: " + board.getScore();
-  text(scoreStr, 40, 690);
-}
-
-void draw(){
-  background(255);
+  text(scoreStr, 20, 690);
+  
+  // screen for tetris
   stroke(0);
   fill(200,100);
   rect(15,15,width-30,635);
+  
+  // update movement of block
   for (int i = 0; i < board.getBlocks().size(); i++) {
-    board.getBlocks(i).update();
-    board.getBlocks(i).display();
+    if (board.getBlocks(i).inBounds()) {
+      board.getBlocks(i).update();
+      board.getBlocks(i).display();
+    }
   }
+  board.getBlocks(0).display();
+  
+  // only moving current block
+  /*
+  Block currBlock = board.getBlocks(0);
+  while (currBlock.inBounds()) {
+    currBlock.update();
+    currBlock.display();
+  }
+  */
 }
 
 public void keyPressed() {

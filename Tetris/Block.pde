@@ -3,12 +3,16 @@ public class Block {
   private int y;
   private int angle;
   private int speed;
+  private int bWidth;
+  private int bHeight;
   
   public Block(){
     this.angle = 0;
     this.speed = 10;
     this.x = 15;
     this.y = 15;
+    this.bWidth = 10;
+    this.bHeight = 20;
   }
   
   public Block(int speed, int angle){
@@ -16,6 +20,8 @@ public class Block {
     this.speed = speed;
     this.x = 15;
     this.y = 15;
+    this.bWidth = 10;
+    this.bHeight = 20;
   }
   
   public int getAngle() {
@@ -55,7 +61,12 @@ public class Block {
   
   public void display() {
     fill(20,100);
-    rect(x,y,10,20);
+    rect(x,y,bWidth,bHeight);
+  }
+  
+  // returns true if in bounds of tetris block screen
+  public boolean inBounds() {
+    return ((x+bWidth) <= 480 && x >= 15 && y >= 15 && (y+bHeight) <= 650);
   }
  
   
