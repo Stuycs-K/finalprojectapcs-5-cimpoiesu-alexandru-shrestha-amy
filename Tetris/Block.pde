@@ -6,7 +6,6 @@ public class Block {
     this.speed = speed;
   }
   
-<<<<<<< HEAD
   public int getAngle() {
     return angle;
   }
@@ -40,11 +39,11 @@ public class Block {
     if (key == CODED) {
       if (keyCode == UP) {
         // turn CW
-        
+        turn();
       }
       else if (keyCode == DOWN) {
         // accelerate
-        
+        accelerate(10);
       }
       else if (keyCode == LEFT) {
         // move left
@@ -56,5 +55,4 @@ public class Block {
       }
     }
   }
->>>>>>> ead0ea019d97a8546adc3764074227d2523331f9
 }
