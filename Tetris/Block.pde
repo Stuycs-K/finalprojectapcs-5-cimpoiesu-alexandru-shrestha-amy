@@ -37,7 +37,7 @@ public class Block {
       
     }
     // left
-    else {
+    else{
       
     }
   }

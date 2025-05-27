@@ -5,6 +5,7 @@ void setup(){
   //startGame();
   delay(1000);
   //endGame();
+  text("Level " + getLevel(),0,0);
 }
 
 void draw(){
