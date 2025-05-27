@@ -1,6 +1,12 @@
 public class Block {
   private int angle;
   private int speed;
+  
+  public Block(){
+    this.angle = 10;
+    this.speed = 10;
+  }
+  
   public Block(int speed, int angle){
     this.angle = angle;
     this.speed = speed;
@@ -25,34 +31,20 @@ public class Block {
   
   // move the block left or right by one
   // depending on key
-  public void move() {
-    
+  public void move(int pos) {
+    // right
+    if (pos > 0) {
+      
+    }
+    // left
+    else {
+      
+    }
   }
  
   
   // increase the speed of the block depending on 
   public void accelerate(int num) {
     speed += num;
-  }
-  
-  public void keyPressed() {
-    if (key == CODED) {
-      if (keyCode == UP) {
-        // turn CW
-        turn();
-      }
-      else if (keyCode == DOWN) {
-        // accelerate
-        accelerate(10);
-      }
-      else if (keyCode == LEFT) {
-        // move left
-        
-      }
-      else if (keyCode == RIGHT) {
-        // move right
-        
-      }
-    }
   }
 }
