@@ -7,7 +7,11 @@ void setup(){
   //startGame();
   delay(1000);
   //endGame();
+<<<<<<< HEAD
   draw();
+=======
+  text("Level " + getLevel(),0,0);
+>>>>>>> alexandru-cimpoiesu
 }
 
 void draw(){
@@ -31,11 +35,19 @@ public void keyPressed() {
       }
       else if (keyCode == LEFT) {
         // move left
+<<<<<<< HEAD
         board.getBlocks(i).move(-1);
       }
       else if (keyCode == RIGHT) {
         // move right
         board.getBlocks(i).move(1);
+=======
+        board.getBlocks(i).move(-1,0);
+      }
+      else if (keyCode == RIGHT) {
+        // move right
+        board.getBlocks(i).move(1,0);
+>>>>>>> alexandru-cimpoiesu
       }
     }
   }

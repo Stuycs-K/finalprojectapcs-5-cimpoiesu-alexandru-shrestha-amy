@@ -2,6 +2,7 @@ public class Game{
 private int level;
 private int score;
 private ArrayList<Block> blocks;
+//private Block[][][] blocks;
 
 public int getLevel(){
   return level; 
