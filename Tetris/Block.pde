@@ -36,7 +36,7 @@ public class Block {
   
   // returns true if in bounds of tetris block screen
   public boolean inBounds() {
-    return ((x+bWidth) <= 480 && x >= 15 && y >= 15 && (y+bHeight) <= 650);
+    return ((x+bWidth) <= 480 && x >= 15 && y >= 15 && (y+bHeight) < 650);
   }
  
   
