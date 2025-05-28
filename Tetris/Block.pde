@@ -35,7 +35,7 @@ public class Block {
   }
   
   // returns true if in bounds of tetris block screen
-  public boolean inBounds() {
+  public boolean inBounds(int x, int y) {
     return ((x+bWidth) <= 480 && x >= 15 && y >= 15 && (y+bHeight) <= 650);
   }
  
@@ -54,6 +54,14 @@ public class Block {
     return speed;
   }
   
+  public int getX() {
+    return x;
+  }
+  
+  public int getY() {
+    return y;
+  }
+  
   // turns the block CW by 90 degrees
   // will not exceed 360 degrees
   public void turn() {
@@ -65,12 +73,12 @@ public class Block {
   // depending on key
   public void move(int posx, int posy) {
     // right
-    if (posx > 0 && posy > 0) {
-      
+    if (posx > 0 && posy == 0 && inBounds(x+1, y)) {
+      x++;
     }
     // left
-    else{
-      
+    else if (posx < 0 && posy == 0 && inBounds(x, y+1)) {
+      y++;
     }
   }
 }

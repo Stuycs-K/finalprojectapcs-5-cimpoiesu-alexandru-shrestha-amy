@@ -28,9 +28,11 @@ void draw(){
   
   // update movement of block
   for (int i = 0; i < board.getBlocks().size(); i++) {
-    if (board.getBlocks(i).inBounds()) {
-      board.getBlocks(i).update();
-      board.getBlocks(i).display();
+     Block currBlock = board.getBlocks(i);
+     
+    if (currBlock.inBounds(currBlock.getX(), currBlock.getY())) {
+      currBlock.update();
+      currBlock.display();
     }
   }
   board.getBlocks(0).display();
