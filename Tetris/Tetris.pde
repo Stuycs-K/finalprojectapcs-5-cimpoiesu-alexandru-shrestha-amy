@@ -57,7 +57,7 @@ public void keyPressed() {
         board.getBlocks(i).accelerate(10);
       }
       else if (keyCode == LEFT) {
-        // move right
+        // move left
         board.getBlocks(i).move(-1,0);
       }
       else if (keyCode == RIGHT) {

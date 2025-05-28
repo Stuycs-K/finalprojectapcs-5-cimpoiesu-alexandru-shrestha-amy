@@ -24,36 +24,6 @@ public class Block {
     this.bHeight = 20;
   }
   
-  public int getAngle() {
-    return angle;
-  }
-  
-  public int getSpeed() {
-    return speed;
-  }
-  
-  // turns the block CW by 90 degrees
-  // will not exceed 360 degrees
-  public void turn() {
-    angle += 90;
-    if (angle >= 360) {
-      angle = angle % 360;
-    }
-  }
-  
-  // move the block left or right by one
-  // depending on key
-  public void move(int posx, int posy) {
-    // right
-    if (posx > 0 && posy > 0) {
-      
-    }
-    // left
-    else{
-      
-    }
-  }
-  
   // automatic falling of block
   public void update() {
     y += speed/10;
@@ -74,5 +44,33 @@ public class Block {
   // need to fix so it only accelerates while key is being pressed
   public void accelerate(int num) {
     speed += num;
+  }
+  
+  public int getAngle() {
+    return angle;
+  }
+  
+  public int getSpeed() {
+    return speed;
+  }
+  
+  // turns the block CW by 90 degrees
+  // will not exceed 360 degrees
+  public void turn() {
+    angle += 90;
+    angle = angle % 360;
+  }
+  
+  // move the block left or right by one
+  // depending on key
+  public void move(int posx, int posy) {
+    // right
+    if (posx > 0 && posy > 0) {
+      
+    }
+    // left
+    else{
+      
+    }
   }
 }
