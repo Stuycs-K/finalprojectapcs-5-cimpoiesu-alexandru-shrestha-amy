@@ -1,40 +1,47 @@
 public class Game{
-private int level;
-private int score;
-private ArrayList<Block> blocks;
-//private Block[][][] blocks;
+  private int level;
+  private int score;
+  private ArrayList<Block> blocks; 
+  //private Block[][][] blocks;
+  
+  public Game(){
+    this.blocks = new ArrayList<Block>();
+    blocks.add(new Block());
+    this.level = 1;
+    this.score = 0;
+  }
 
-public int getLevel(){
-  return level; 
-}
+  public int getLevel(){
+    return level; 
+  }
 
-public int size(){
- return blocks.size(); 
-}
+  public int size(){
+   return blocks.size(); 
+  }
 
-public int getScore(){
-   return score; 
-}
+  public int getScore(){
+     return score; 
+  }
 
-public ArrayList<Block> getBlocks(){
-  return blocks;
-}
+  public ArrayList<Block> getBlocks(){
+    return blocks;
+  }
 
-public Block getBlocks(int i){
- return blocks.get(i); 
-}
+  public Block getBlocks(int i){
+   return blocks.get(i); 
+  }
 
-public Block nextBlock(){
-  level++;
-  return new Block();
-}
+  public Block nextBlock(){
+    level++;
+    return new Block();
+  }
 
-public boolean clearRow(int row){
-  return false;
-}
+  public boolean clearRow(int row){
+    return false;
+  }
 
-public void endGame(){
-  clear();
-  text("Game Over",214,375);
+  public void endGame(){
+    clear();
+    text("Game Over",214,375);
   }
 }
