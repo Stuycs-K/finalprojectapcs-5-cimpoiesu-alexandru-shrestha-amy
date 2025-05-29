@@ -63,6 +63,14 @@ public class Block {
     return y;
   }
   
+  public int getWidth() {
+    return bWidth;
+  }
+  
+  public int getHeight() {
+    return bHeight;
+  }
+  
   // turns the block CW by 90 degrees
   // will not exceed 360 degrees
   public void turn() {
