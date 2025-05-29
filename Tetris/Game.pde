@@ -3,24 +3,26 @@ public class Game{
   private int score;
   private ArrayList<Block> blocks; 
   //private Block[][][] blocks;
+  private int rowsCleared;
   
   public Game(){
-    this.blocks = new ArrayList<Block>();
-    blocks.add(new Block());
     this.level = 1;
     this.score = 0;
+    this.blocks = new ArrayList<Block>();
+    blocks.add(new Block());
+    this.rowsCleared = 0;
   }
 
   public int getLevel(){
     return level; 
   }
-
-  public int size(){
-   return blocks.size(); 
-  }
-
+  
   public int getScore(){
      return score; 
+  }
+
+  public int getSize(){
+   return blocks.size(); 
   }
 
   public ArrayList<Block> getBlocks(){
