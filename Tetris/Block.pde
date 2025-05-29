@@ -15,13 +15,13 @@ public class Block {
     this.bHeight = 30;
   }
   
-  public Block(int speed, int angle){
-    this.angle = angle;
-    this.speed = speed;
-    this.x = 15;
-    this.y = 15;
-    this.bWidth = 10;
-    this.bHeight = 20;
+  public Block(int x, int y){
+    this.angle = 0;
+    this.speed = 10;
+    this.x = x;
+    this.y = y;
+    this.bWidth = 30;
+    this.bHeight = 30;
   }
   
   // automatic falling of block
@@ -41,8 +41,7 @@ public class Block {
   }
  
   
-  // increase the speed of the block depending on 
-  // need to fix so it only accelerates while key is being pressed
+  // increase the speed of the block
   public void accelerate(int num) {
     speed += num;
   }
