@@ -51,7 +51,7 @@ public class Block {
     return angle;
   }
   
-  public int setSpeed(int speed) {
+  public void setSpeed(int speed) {
      this.speed = speed;
   }
   
@@ -65,6 +65,10 @@ public class Block {
   
   public int getY() {
     return y;
+  }
+  
+  public void setY(int y) {
+    this.y = y;
   }
   
   public int getWidth() {
@@ -92,6 +96,9 @@ public class Block {
     // left
     else if (posx < 0 && posy == 0 && inBounds(x-1, y)) {
       x-=bWidth;
+    }
+    else if (y + posy > 630){
+       y = 630-bHeight; 
     }
   }
 }
