@@ -3,7 +3,7 @@ private Game board = new Game();
 
 void setup(){
   background(255);
-  size(500,725);
+  size(580,660);
   //startGame();
   //delay(1000);
   //endGame();
@@ -13,24 +13,34 @@ void setup(){
 void draw(){
   background(255);
   
+  // screen for tetris
+  // should be 10 blocks wide, 20 blocks high
+  stroke(5);
+  fill(200,50); // opacity 50
+  rect(30,30,300,600);
+  
+  // screen for nextBlock
+  rect(360, 30, width-30-360, 180);
+  
+  // screen for text
+  rect(360, 240, width-30-360, 90);
+  line(360, 285, 550, 285);
+  
   // text for score + level
   fill(0);
-  textSize(15);
-  String levelStr = "Level: " + board.getLevel();
-  text(levelStr, 20, 670);
-  String scoreStr = "Score: " + board.getScore();
-  text(scoreStr, 20, 690);
-  
-  // screen for tetris
-  stroke(0);
-  fill(200,100);
-  rect(15,15,width-30,635);
+  textSize(25);
+  String levelStr = "LEVEL:     " + board.getLevel();
+  text(levelStr, 380, 271);
+  String scoreStr = "SCORE:    " + board.getScore();
+  text(scoreStr, 380, 315);
   
   // update movement of block
   for (int i = 0; i < board.getBlocks().size(); i++) {
-    if (board.getBlocks(i).inBounds()) {
-      board.getBlocks(i).update();
-      board.getBlocks(i).display();
+     Block currBlock = board.getBlocks(i);
+     
+    if (currBlock.inBounds(currBlock.getX(), currBlock.getY())) {
+      currBlock.update();
+      currBlock.display();
     }
   }
   board.getBlocks(0).display();
@@ -46,7 +56,7 @@ void draw(){
 }
 
 public void keyPressed() {
-  for (int i = 0; i < board.size(); i++) {
+  for (int i = 0; i < board.getSize(); i++) {
     if (key == CODED) {
       if (keyCode == UP) {
         // turn CW
