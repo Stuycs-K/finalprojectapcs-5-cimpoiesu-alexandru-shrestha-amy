@@ -51,6 +51,10 @@ public class Block {
     return angle;
   }
   
+  public int setSpeed(int speed) {
+     this.speed = speed;
+  }
+  
   public int getSpeed() {
     return speed;
   }
