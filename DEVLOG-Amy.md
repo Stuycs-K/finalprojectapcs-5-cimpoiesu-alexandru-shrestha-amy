@@ -18,3 +18,6 @@ Updated UML diagram and PROTOTYPE.md by adding an extra class to hold the game t
 
 ### 2025-05-27 - Block Class
 Fixed timeline on PROTOTYPE.md. Testing processing methods to get visual board on screen.
+
+### 2025-05-28 - Block Movements
+Created getter functions for x & y of Block. Updated move() function to move based on key pressed.
