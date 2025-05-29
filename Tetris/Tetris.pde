@@ -3,7 +3,7 @@ private Game board = new Game();
 
 void setup(){
   background(255);
-  size(500,725);
+  size(430,890);
   //startGame();
   //delay(1000);
   //endGame();
@@ -22,9 +22,10 @@ void draw(){
   text(scoreStr, 20, 690);
   
   // screen for tetris
+  // should be 10 blocks wide, 20 blocks high
   stroke(0);
-  fill(200,100);
-  rect(15,15,width-30,635);
+  fill(200,50); // opacity 50
+  rect(15,15,400,635);
   
   // update movement of block
   for (int i = 0; i < board.getBlocks().size(); i++) {

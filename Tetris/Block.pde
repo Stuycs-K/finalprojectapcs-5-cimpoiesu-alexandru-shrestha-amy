@@ -11,7 +11,7 @@ public class Block {
     this.speed = 10;
     this.x = 15;
     this.y = 15;
-    this.bWidth = 25;
+    this.bWidth = 40;
     this.bHeight = 40;
   }
   
@@ -27,6 +27,7 @@ public class Block {
   // automatic falling of block
   public void update() {
     y += speed/10;
+    System.out.println("x: " + x + ", y: " + y);
   }
   
   public void display() {
@@ -36,7 +37,7 @@ public class Block {
   
   // returns true if in bounds of tetris block screen
   public boolean inBounds(int x, int y) {
-    return ((x+bWidth) <= 480 && x >= 15 && y >= 15 && (y+bHeight) <= 650);
+    return ((x+bWidth) <= 415 && x >= 15 && y >= 15 && (y+bHeight) <= 650);
   }
  
   
@@ -74,11 +75,11 @@ public class Block {
   public void move(int posx, int posy) {
     // right
     if (posx > 0 && posy == 0 && inBounds(x+1, y)) {
-      x++;
+      x+=bWidth;
     }
     // left
-    else if (posx < 0 && posy == 0 && inBounds(x, y+1)) {
-      y++;
+    else if (posx < 0 && posy == 0 && inBounds(x-1, y)) {
+      x-=bWidth;
     }
   }
 }
