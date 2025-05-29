@@ -42,6 +42,10 @@ void draw(){
       currBlock.update();
       currBlock.display();
     }
+    if (currBlock.getY() + currBlock.getHeight() > 630) {
+       currBlock.setY(630 - currBlock.getHeight());
+    }
+    System.out.println(currBlock.getY());
   }
   board.getBlocks(0).display();
   
@@ -56,7 +60,7 @@ void draw(){
 }
 
 public void keyPressed() {
-  for (int i = 0; i < board.size(); i++) {
+  for (int i = 0; i < board.getSize(); i++) {
     if (key == CODED) {
       if (keyCode == UP) {
         // turn CW
@@ -64,7 +68,7 @@ public void keyPressed() {
       }
       else if (keyCode == DOWN) {
         // accelerate
-        board.getBlocks(i).accelerate(10);
+          board.getBlocks(i).accelerate(10);
       }
       else if (keyCode == LEFT) {
         // move left
