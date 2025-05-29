@@ -9,10 +9,10 @@ public class Block {
   public Block(){
     this.angle = 0;
     this.speed = 10;
-    this.x = 15;
-    this.y = 15;
-    this.bWidth = 40;
-    this.bHeight = 40;
+    this.x = 150;
+    this.y = 30;
+    this.bWidth = 30;
+    this.bHeight = 30;
   }
   
   public Block(int speed, int angle){
@@ -37,7 +37,7 @@ public class Block {
   
   // returns true if in bounds of tetris block screen
   public boolean inBounds(int x, int y) {
-    return ((x+bWidth) <= 415 && x >= 15 && y >= 15 && (y+bHeight) <= 650);
+    return ((x+bWidth) <= 330 && x >= 30 && y >= 30 && (y+bHeight) < 630);
   }
  
   
