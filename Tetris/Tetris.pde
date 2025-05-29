@@ -42,6 +42,10 @@ void draw(){
       currBlock.update();
       currBlock.display();
     }
+    if (currBlock.getY() + currBlock.getHeight() > 630) {
+       currBlock.setY(630 - currBlock.getHeight());
+    }
+    System.out.println(currBlock.getY());
   }
   board.getBlocks(0).display();
   
