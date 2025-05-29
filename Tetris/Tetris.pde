@@ -39,46 +39,46 @@ void draw(){
      Block[] currBlock = board.getBlocks(i);
      
     if (currBlock[0].inBounds(currBlock[0].getX(), currBlock[0].getY()) && currBlock[3].inBounds(currBlock[3].getX(), currBlock[3].getY())) {
-      for (int f = 0; f < currBlock.length; f++) {
+      for (int f = 0; f < 4; f++) {
         currBlock[f].update();
         currBlock[f].display();
       }
     }
   }
+  
   for (int g = 0; g < 4; g++) {
     board.getBlocks(0)[g].display();
   }
-  
-  // only moving current block
-  /*
-  Block currBlock = board.getBlocks(0);
-  while (currBlock.inBounds()) {
-    currBlock.update();
-    currBlock.display();
-  }
-  */
 }
 
 public void keyPressed() {
   for (int i = 0; i < board.getSize(); i++) {
     if (key == CODED) {
-      for (int f = 0; f < 4; i++) {
-        if (keyCode == UP) {
+      if (keyCode == UP) {
         // turn CW
-        board.getBlocks(i)[f].turn();
+        for (int f = 0; f < 4; f++) {
+          // fix for turn because the position of the block needs to be moved
+          // not just the angle
+          board.getBlocks(i)[f].turn();
+        }
       }
       else if (keyCode == DOWN) {
         // accelerate
-        board.getBlocks(i)[f].accelerate(10);
+        for (int f = 0; f < 4; f++) {
+          board.getBlocks(i)[f].accelerate(10);
+        }
       }
       else if (keyCode == LEFT) {
         // move left
-        board.getBlocks(i)[f].move(-1,0);
+        for (int f = 0; f < 4; f++) {
+          board.getBlocks(i)[f].move(-1,0);
+        }
       }
       else if (keyCode == RIGHT) {
         // move right
-        board.getBlocks(i)[f].move(1,0);
-      }
+        for (int f = 0; f < 4; f++) {
+          board.getBlocks(i)[f].move(1,0);
+        }
       }
     }
   }

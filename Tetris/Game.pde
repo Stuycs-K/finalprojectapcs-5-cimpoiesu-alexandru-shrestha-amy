@@ -48,6 +48,18 @@ public class Game{
       bI[i] = new Block(i*30+120,30);
     }
     blockType.add(bI);
+    
+    Block[] bJ = new Block[4];
+    
+    Block[] bL = new Block[4];
+    
+    Block[] bO = new Block[4];
+    
+    Block[] bS = new Block[4];
+    
+    Block[] bT = new Block[4];
+    
+    Block[] bZ = new Block[4];
   }
 
   public boolean clearRow(int row){

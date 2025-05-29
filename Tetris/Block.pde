@@ -27,7 +27,7 @@ public class Block {
   // automatic falling of block
   public void update() {
     y += speed/10;
-    System.out.println("x: " + x + ", y: " + y);
+    //System.out.println("x: " + x + ", y: " + y);
   }
   
   public void display() {
