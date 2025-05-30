@@ -37,15 +37,19 @@ void draw(){
   // update movement of block
   for (int i = 0; i < board.getBlocks().size(); i++) {
      Block currBlock = board.getBlocks(i);
-     
+    if (currBlock.getY() + currBlock.getHeight() >= 630 && currBlock.getMove()) {
+       System.out.println("Hi");
+       currBlock.setY(630 - currBlock.getHeight());
+       currBlock.update();
+       currBlock.display();
+       currBlock.setMove(false);
+    }
+    //System.out.println(currBlock.getHeight() > currBlock.getY()-30);
     if (currBlock.inBounds(currBlock.getX(), currBlock.getY())) {
       currBlock.update();
       currBlock.display();
     }
-    if (currBlock.getY() + currBlock.getHeight() > 630) {
-       currBlock.setY(630 - currBlock.getHeight());
-    }
-    System.out.println(currBlock.getY());
+    //System.out.println(currBlock.getSpeed());
   }
   board.getBlocks(0).display();
   
@@ -58,7 +62,7 @@ void draw(){
   }
   */
 }
-
+int timesdown = 0;
 public void keyPressed() {
   for (int i = 0; i < board.getSize(); i++) {
     if (key == CODED) {
@@ -69,6 +73,7 @@ public void keyPressed() {
       else if (keyCode == DOWN) {
         // accelerate
           board.getBlocks(i).accelerate(10);
+          timesdown++;
       }
       else if (keyCode == LEFT) {
         // move left
@@ -82,6 +87,16 @@ public void keyPressed() {
   }
 }
 
+public void keyReleased(){
+  for (int i = 0; i < board.getSize(); i++) {
+     if (key == CODED) {
+       if (keyCode == DOWN) {
+         board.getBlocks(i).accelerate(-10 * timesdown); 
+         timesdown = 0;
+       }
+     }
+  }
+}
 // placeholder, used to get position of text
 public void mousePressed() {
   System.out.println(mouseX + "," + mouseY);

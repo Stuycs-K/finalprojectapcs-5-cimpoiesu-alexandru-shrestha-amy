@@ -5,6 +5,7 @@ public class Block {
   private int speed;
   private int bWidth;
   private int bHeight;
+  private boolean canMove = true;
   
   public Block(){
     this.angle = 0;
@@ -40,7 +41,14 @@ public class Block {
     return ((x+bWidth) <= 330 && x >= 30 && y >= 30 && (y+bHeight) < 630);
   }
  
+  public void setMove(boolean val){
+     canMove = val;
+  }
   
+  public boolean getMove(){
+     return canMove;
+  }
+
   // increase the speed of the block depending on 
   // need to fix so it only accelerates while key is being pressed
   public void accelerate(int num) {
@@ -98,7 +106,7 @@ public class Block {
       x-=bWidth;
     }
     else if (y + posy > 630){
-       y = 630-bHeight; 
+       speed = 630 - bHeight; 
     }
   }
 }
