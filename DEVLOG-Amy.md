@@ -23,7 +23,10 @@ Fixed timeline on PROTOTYPE.md. Testing processing methods to get visual board o
 Created getter functions for x & y of Block. Updated move() function to move based on key pressed. Spent 40 minutes.
 
 ### 2025-05-29 - "I" Block
-Creating a 4-Block array that is an actual block in Tetris. Fixed all methods to suit the block array and fixed left/right movement, accelerate movement, and working on turning movement. Spent 60 minutes.
+Creating a 4-Block array (Tetromino). Fixed all methods to suit the block array and fixed left/right movement, accelerate movement, and working on turning movement. Spent 60 minutes.
 
-### 2025-05-30 - 
+### 2025-05-30 - Game Class
+Fixed endGame() text, and update it to stop the update() of all the blocks using noLoop(). Updated level and score increasing mechanisms in clearRow(). Also fixed nextBlock() to randomly choose block from blockType. Spent 40 minutes.
+
+### 2025-06-02 - 
 
