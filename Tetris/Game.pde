@@ -67,7 +67,8 @@ public class Game{
   }
 
   public void endGame(){
-    clear();
-    text("Game Over",214,375);
+    fill(color(0));
+    text("Game Over",125,315, 100);
+    noLoop();
   }
 }
