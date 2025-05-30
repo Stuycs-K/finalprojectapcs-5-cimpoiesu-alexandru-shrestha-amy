@@ -21,3 +21,9 @@ Fixed timeline on PROTOTYPE.md. Testing processing methods to get visual board o
 
 ### 2025-05-28 - Block Movements
 Created getter functions for x & y of Block. Updated move() function to move based on key pressed.
+
+### 2025-05-29 - "I" Block
+Creating a 4-Block array that is an actual block in Tetris. Fixed all methods to suit the block array and fixed left/right movement, accelerate movement, and working on turning movement.
+
+### 2025-05-30 - 
+
