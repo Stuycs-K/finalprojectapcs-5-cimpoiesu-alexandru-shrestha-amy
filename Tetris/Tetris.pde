@@ -40,6 +40,9 @@ void draw(){
      
     if (currBlock[0].inBounds(currBlock[0].getX(), currBlock[0].getY()) && currBlock[3].inBounds(currBlock[3].getX(), currBlock[3].getY())) {
       for (int f = 0; f < 4; f++) {
+        if (currBlock[f].getY() + currBlock[f].getHeight() > 630) {
+         currBlock[f].setY(630 - currBlock[f].getHeight());
+        }
         currBlock[f].update();
         currBlock[f].display();
       }
