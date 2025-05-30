@@ -2,34 +2,44 @@ public class Block {
   private int x;
   private int y;
   private int angle;
-  private int speed;
   private int bWidth;
   private int bHeight;
+  private int millisec;
+  private int speedDelay;
+
   
   public Block(){
     this.angle = 0;
-    this.speed = 10;
     this.x = 150;
     this.y = 30;
     this.bWidth = 30;
     this.bHeight = 30;
+    this.millisec = millis();
+    this.speedDelay = 550;
   }
   
   public Block(int x, int y){
     this.angle = 0;
-    this.speed = 10;
     this.x = x;
     this.y = y;
     this.bWidth = 30;
     this.bHeight = 30;
+    this.millisec = millis();
+    
+    this.speedDelay = 550;
   }
   
   // automatic falling of block
-  public void update() {
-    y += speed/10;
-    //System.out.println("x: " + x + ", y: " + y);
+  // SHOULD BE BLOCK BY BLOCK
+ public void update() {
+    int currentMilli = millis();
+    // calc a delay that doesn't affect the update()
+    // so it moves y based on delay in milliseconds
+    if (currentMilli - millisec >= speedDelay) {
+      y += bHeight;
+      millisec = currentMilli;
+    }
   }
-  
   public void display() {
     fill(20,100);
     rect(x,y,bWidth,bHeight);
@@ -43,7 +53,10 @@ public class Block {
   
   // increase the speed of the block
   public void accelerate(int num) {
-    speed += num;
+    speedDelay -= (num*10);
+    if (speedDelay < 0) {
+      speedDelay = 1;
+    }
   }
   
   public int getAngle() {
@@ -51,7 +64,7 @@ public class Block {
   }
   
   public int getSpeed() {
-    return speed;
+    return speedDelay;
   }
   
   public int getX() {
