@@ -70,6 +70,10 @@ public class Block {
     return bHeight;
   }
   
+  public void setY(int y) {
+    this.y = y;
+  }
+  
   // turns the block CW by 90 degrees
   // will not exceed 360 degrees
   public void turn() {
