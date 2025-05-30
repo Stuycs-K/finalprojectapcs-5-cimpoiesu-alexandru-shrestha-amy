@@ -98,7 +98,7 @@ public class Block {
       x-=bWidth;
     }
     else if (y + posy > 630){
-       y = 630-bHeight; 
+       speed = 630 - bHeight; 
     }
   }
 }
