@@ -5,7 +5,7 @@ public class Block {
   private int speed;
   private int bWidth;
   private int bHeight;
-  private boolean canMove;
+  private boolean canMove = true;
   
   public Block(){
     this.angle = 0;

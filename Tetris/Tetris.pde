@@ -37,11 +37,12 @@ void draw(){
   // update movement of block
   for (int i = 0; i < board.getBlocks().size(); i++) {
      Block currBlock = board.getBlocks(i);
-    if (currBlock.getY() + currBlock.getHeight() >= 630) {
-       currBlock.setY(629 - currBlock.getHeight());
+    if (currBlock.getY() + currBlock.getHeight() >= 630 && currBlock.getMove()) {
+       System.out.println("Hi");
+       currBlock.setY(630 - currBlock.getHeight());
        currBlock.update();
        currBlock.display();
-       System.out.println(currBlock.getY() + currBlock.getHeight());
+       currBlock.setMove(false);
     }
     //System.out.println(currBlock.getHeight() > currBlock.getY()-30);
     if (currBlock.inBounds(currBlock.getX(), currBlock.getY())) {
