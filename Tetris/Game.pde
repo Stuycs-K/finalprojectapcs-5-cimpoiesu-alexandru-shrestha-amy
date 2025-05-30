@@ -1,18 +1,29 @@
+import java.util.*;
 public class Game{
   private int level;
   private int score;
   private ArrayList<Block[]> blocks; 
+  private Block[][] screen;
+  
   private ArrayList<Block[]> blockType;
+  private int index;
+  private Block[] currentBlock;
   //private Block[][][] blocks;
   private int rowsCleared;
   
   public Game(){
     this.level = 1;
     this.score = 0;
+    
     this.blockType = new ArrayList<Block[]>();
+    this.index = 1;
     blockSetup();
+    
     this.blocks = new ArrayList<Block[]>();
     blocks.add(blockType.get(0));
+    this.screen = new Block[20][10];
+    
+    this.currentBlock = blockType.get(0);
     this.rowsCleared = 0;
   }
 
@@ -33,13 +44,24 @@ public class Game{
   }
 
   public Block[] getBlocks(int i){
-   return blocks.get(0); 
+   return blocks.get(i); 
   }
 
-  public Block nextBlock(){
+  public Block[] nextBlock(){
     level++;
     
-    return new Block();
+    // randomizes block choice each time
+    Collections.shuffle(blockType);
+    Block[] newBlock = blockType.get(index);
+    index++;
+    
+    // resets index if it surpasses blockType length
+    if (index >= blockType.size()) {
+      index = 0;
+    }
+    
+    this.currentBlock = newBlock;
+    return newBlock;
   }
   
   public void blockSetup(){
@@ -49,6 +71,7 @@ public class Game{
     }
     blockType.add(bI);
     
+    /*
     Block[] bJ = new Block[4];
     
     Block[] bL = new Block[4];
@@ -60,9 +83,27 @@ public class Game{
     Block[] bT = new Block[4];
     
     Block[] bZ = new Block[4];
+    */
   }
 
   public boolean clearRow(int row){
+    if (rowsCleared == 10) {
+      level++;
+      rowsCleared = 0;
+    }
+    
+    for (int r = 0; r < screen.length; r++) {
+      for (int c = 0; c < screen[0].length; c++) {
+        if (r == row) {
+          // if you can clear the row
+          // clear the row and move everything down
+          score++;
+          rowsCleared++;
+          
+          return true;
+        }
+      }
+    }
     return false;
   }
 
