@@ -11,19 +11,19 @@ Modified prototype document, including the outline of the classes, methods, the 
 Fixed formatting, minor fixes to diagram, changed team name, and devised possible coding methods based on diagram. Spent around 25 minutes.
 
 ### 2025-05-22 - UML Diagram
-Changed and updated UML diagram.
+Changed and updated UML diagram. Spent 40 minutes.
 
 ### 2025-05-23 - Block Class
-Updated UML diagram and PROTOTYPE.md by adding an extra class to hold the game together. Also worked on Block class methods.
+Updated UML diagram and PROTOTYPE.md by adding an extra class to hold the game together. Also worked on Block class methods. Spent 30 minutes.
 
 ### 2025-05-27 - Block Class
-Fixed timeline on PROTOTYPE.md. Testing processing methods to get visual board on screen.
+Fixed timeline on PROTOTYPE.md. Testing processing methods to get visual board on screen. Spent 40 minutes.
 
 ### 2025-05-28 - Block Movements
-Created getter functions for x & y of Block. Updated move() function to move based on key pressed.
+Created getter functions for x & y of Block. Updated move() function to move based on key pressed. Spent 40 minutes.
 
 ### 2025-05-29 - "I" Block
-Creating a 4-Block array that is an actual block in Tetris. Fixed all methods to suit the block array and fixed left/right movement, accelerate movement, and working on turning movement.
+Creating a 4-Block array that is an actual block in Tetris. Fixed all methods to suit the block array and fixed left/right movement, accelerate movement, and working on turning movement. Spent 60 minutes.
 
 ### 2025-05-30 - 
 
