@@ -36,7 +36,9 @@ public class Block {
     // calc a delay that doesn't affect the update()
     // so it moves y based on delay in milliseconds
     if (currentMilli - millisec >= speedDelay) {
-      y += bHeight;
+      if (inBounds(x, y)) {
+        y += bHeight;
+      }
       millisec = currentMilli;
     }
   }

@@ -89,6 +89,10 @@ public void keyPressed() {
   }
 }
 
+public void keyReleased() {
+  // use to fix accelerate
+}
+
 // placeholder, used to get position of text
 public void mousePressed() {
   System.out.println(mouseX + "," + mouseY);
