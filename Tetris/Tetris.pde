@@ -39,11 +39,9 @@ void draw(){
      Block[] myBlocks = currBlock.getBlocks();
      
      //check if currBlock has hit the bottom
-     for (int f = 0; f < 4; f++) {
-     if (myBlocks[f].getY() + myBlocks[f].getHeight() >= 630) {
-       board.nextBlock();
-       break;
-     }
+     if (currBlock.needNextBlock()) {
+       currBlock = board.getCurr();
+       myBlocks = currBlock.getBlocks();
      }
      
     boolean allInBound = true;
@@ -56,9 +54,7 @@ void draw(){
     if (allInBound) {
       currBlock.update();
       currBlock.display();
-      for (int g = 0; g < 4; g++) {
-        myBlocks[g].setMove(false);
-      }
+      currBlock.setMove(false);
     }
     else {
       board.nextBlock();
@@ -85,11 +81,7 @@ void draw(){
     }
     //System.out.println(currBlock.getSpeed());
   }
-  
-  // displays each individual block of the current block (INDEX 0 - CHANGE THIS LATER)
-  for (int g = 0; g < 4; g++) {
-    board.getBlockArray(0).getBlocks()[g].display();
-  }
+  board.getBlockArray(0).display();
 }
   
 public void keyPressed() {
@@ -105,10 +97,7 @@ public void keyPressed() {
       }
       else if (keyCode == DOWN) {
         // accelerate
-        for (int f = 0; f < 4; f++) {
-          board.getBlockArray(i).getBlocks()[f].accelerate(10);
-        }
-        timesdown++;
+        timesdown+=board.getBlockArray(i).accelerate(10);
       }
       else if (keyCode == LEFT) {
         // move left

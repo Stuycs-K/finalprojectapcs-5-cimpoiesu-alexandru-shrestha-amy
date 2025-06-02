@@ -50,6 +50,10 @@ public class Game{
   public Tetromino getBlockArray(int i){
    return blocks.get(i); 
   }
+  
+  public Tetromino getCurr(){
+   return currentBlock;
+  }
 
   public Tetromino nextBlock(){
     level++;
@@ -68,8 +72,10 @@ public class Game{
       index = 0;
     }
     
-    blocks.add(newBlock);
-    this.currentBlock = newBlock;
+    blocks.add(blocks.get(0));
+    blocks.set(0, newBlock);
+    this.currentBlock = blocks.get(0);
+    System.out.println(currentBlock.getSpeed());
     return newBlock;
   }
   
