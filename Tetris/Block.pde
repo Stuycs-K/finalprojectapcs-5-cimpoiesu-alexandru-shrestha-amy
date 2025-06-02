@@ -3,7 +3,7 @@ public class Block {
   private int angle;
   private int bWidth, bHeight;
   private int millisec, speedDelay;
-  private int origSpeed, accSpeed;
+  private boolean canMove;
   
   public Block(){
     this.angle = 0;
@@ -13,8 +13,7 @@ public class Block {
     this.bHeight = 30;
     this.millisec = millis();
     this.speedDelay = 550;
-    this.origSpeed = speedDelay;
-    this.accSpeed = 50;
+    this.canMove = true;
   }
   
   public Block(int x, int y){
@@ -26,8 +25,7 @@ public class Block {
     this.millisec = millis();
     
     this.speedDelay = 550;
-    this.origSpeed = speedDelay;
-    this.accSpeed = 50;
+    this.canMove = true;
   }
   
   // automatic falling of block
@@ -53,20 +51,18 @@ public class Block {
   public boolean inBounds(int x, int y) {
     return ((x+bWidth) <= 330 && x >= 30 && y >= 30 && (y+bHeight) < 630);
   }
- 
   
-  // increase the speed of the block
-  public void accelerate(int num) {
-    accSpeed += (num*10);
-    speedDelay = origSpeed - accSpeed;
-    if (speedDelay < 1) {
-      speedDelay = 1;
-    }
+  public void setMove(boolean val){
+     canMove = val;
   }
   
-  public void stopAcc() {
-    accSpeed = 0;
-    speedDelay = origSpeed;
+  public boolean getMove(){
+     return canMove;
+  }
+ 
+  // increase the speed of the block
+  public void accelerate(int num) {
+    speedDelay += num;
   }
   
   public int getAngle() {
@@ -74,7 +70,7 @@ public class Block {
   }
   
   public int getSpeed() {
-    return origSpeed;
+    return speedDelay;
   }
   
   public int getX() {
@@ -98,7 +94,7 @@ public class Block {
   }
   
   public void setSpeed(int num) {
-    origSpeed = num;
+    speedDelay = num;
   }
   
   // turns the block CW by 90 degrees

@@ -1,6 +1,6 @@
 import java.util.*;
 private Game board = new Game();
-private boolean acc = false;
+private int timesdown = 0;
 
 void setup(){
   background(255);
@@ -75,9 +75,9 @@ public void keyPressed() {
       }
       else if (keyCode == DOWN) {
         // accelerate
-        acc = true;
         for (int f = 0; f < 4; f++) {
           board.getBlocks(i)[f].accelerate(8);
+          timesdown++;
         }
       }
       else if (keyCode == LEFT) {
@@ -96,12 +96,16 @@ public void keyPressed() {
   }
 }
 
-public void keyReleased() {
-  acc = false;
+public void keyReleased(){
   for (int i = 0; i < board.getSize(); i++) {
-    for (int f = 0; f < 4; f++) {
-      board.getBlocks(i)[f].stopAcc();
-    }
+     if (key == CODED) {
+       if (keyCode == DOWN) {
+         for (int f = 0; f < 4; f++) {
+           board.getBlocks(i)[f].accelerate(-10*timesdown);
+         timesdown = 0;
+         }
+       }
+     }
   }
 }
 
