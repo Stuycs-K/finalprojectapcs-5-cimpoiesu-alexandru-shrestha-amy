@@ -5,9 +5,9 @@ private boolean acc = false;
 void setup(){
   background(255);
   size(580,660);
+  // possible start screen
   //startGame();
-  //delay(1000);
-  //endGame();
+  
   draw();
 }
 
@@ -39,12 +39,16 @@ void draw(){
   for (int i = 0; i < board.getBlocks().size(); i++) {
      Block[] currBlock = board.getBlocks(i);
      
-    if (currBlock[0].inBounds(currBlock[0].getX(), currBlock[0].getY()) && currBlock[3].inBounds(currBlock[3].getX(), currBlock[3].getY())) {
+    // update and display each block in the current block
+    // make sure to CHANGE THE INDEXES (may turn into 2d array for shape)
+    if (currBlock[i].inBounds(currBlock[0].getX(), currBlock[0].getY()) && currBlock[3].inBounds(currBlock[3].getX(), currBlock[3].getY())) {
       for (int f = 0; f < 4; f++) {
         currBlock[f].update();
         currBlock[f].display();
       }
     }
+    
+    // make sure it doesn't exceed the screen
     for (int f = 0; f < 4; f++) {
       if (currBlock[f].getY() + currBlock[f].getHeight() > 630) {
         currBlock[f].setY(630 - currBlock[f].getHeight());
@@ -52,6 +56,7 @@ void draw(){
     }
   }
   
+  // displays each individual block of the current block (INDEX 0 - CHANGE THIS LATER)
   for (int g = 0; g < 4; g++) {
     board.getBlocks(0)[g].display();
   }
@@ -63,8 +68,8 @@ public void keyPressed() {
       if (keyCode == UP) {
         // turn CW
         for (int f = 0; f < 4; f++) {
-          // fix for turn because the position of the block needs to be moved
-          // not just the angle
+          // FIX TURNING FOR THE TETROMINO
+          // because the position of the block needs to be moved not just the angle
           board.getBlocks(i)[f].turn();
         }
       }

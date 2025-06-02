@@ -43,6 +43,7 @@ public class Block {
       millisec = currentMilli;
     }
   }
+  
   public void display() {
     fill(20,100);
     rect(x,y,bWidth,bHeight);
