@@ -21,7 +21,7 @@ public class Game{
     
     this.blockType = new ArrayList<Tetromino>();
     this.index = 0;
-    blockSetup();
+    blockSetup(); // ERROR
     
     this.blocks = new ArrayList<Tetromino>();
     blocks.add(blockType.get(0));

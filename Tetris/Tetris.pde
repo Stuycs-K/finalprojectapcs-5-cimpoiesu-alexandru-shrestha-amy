@@ -43,15 +43,8 @@ void draw(){
        currBlock = board.getCurr();
        myBlocks = currBlock.getBlocks();
      }
-     
-    boolean allInBound = true;
-    for (int f = 0; f < 4; f++) {
-      if (!(myBlocks[f].inBounds(myBlocks[f].getX(), myBlocks[f].getY()))) {
-        allInBound = false;
-      }
-    }
     
-    if (allInBound) {
+    if (currBlock.inBounds()) {
       currBlock.update();
       currBlock.display();
       currBlock.setMove(false);
@@ -65,6 +58,7 @@ void draw(){
       if (myBlocks[f].getY() + myBlocks[f].getHeight() > 630 && myBlocks[f].getMove()) {
         myBlocks[f].setY(630 - myBlocks[f].getHeight());
       }
+    }
       /*
     if (currBlock.getY() + currBlock.getHeight() >= 630 && currBlock.getMove()) {
        System.out.println("Hi");
@@ -77,8 +71,8 @@ void draw(){
     if (currBlock.inBounds(currBlock.getX(), currBlock.getY())) {
       currBlock.update();
       currBlock.display();
-      */
     }
+      */
     //System.out.println(currBlock.getSpeed());
   }
   board.getBlockArray(0).display();
