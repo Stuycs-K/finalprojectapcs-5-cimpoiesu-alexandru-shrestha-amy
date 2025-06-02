@@ -1,13 +1,12 @@
 import java.util.*;
 private Game board = new Game();
+private int timesdown = 0;
 
 void setup(){
-  background(255);
   size(580,660);
+  background(255);
+  // possible start screen
   //startGame();
-  //delay(1000);
-  //endGame();
-  draw();
 }
 
 void draw(){
@@ -36,7 +35,24 @@ void draw(){
   
   // update movement of block
   for (int i = 0; i < board.getBlocks().size(); i++) {
-     Block currBlock = board.getBlocks(i);
+     Block[] currBlock = board.getBlocks(i);
+     
+    // update and display each block in the current block
+    // make sure to CHANGE THE INDEXES (may turn into 2d array for shape)
+    if (currBlock[0].inBounds(currBlock[0].getX(), currBlock[0].getY()) && currBlock[3].inBounds(currBlock[3].getX(), currBlock[3].getY())) {
+      for (int f = 0; f < 4; f++) {
+        currBlock[f].update();
+        currBlock[f].display();
+        currBlock[f].setMove(false);
+      }
+    }
+    
+    // make sure it doesn't exceed the screen
+    for (int f = 0; f < 4; f++) {
+      if (currBlock[f].getY() + currBlock[f].getHeight() > 630 && currBlock[f].getMove()) {
+        currBlock[f].setY(630 - currBlock[f].getHeight());
+      }
+      /*
     if (currBlock.getY() + currBlock.getHeight() >= 630 && currBlock.getMove()) {
        System.out.println("Hi");
        currBlock.setY(630 - currBlock.getHeight());
@@ -48,40 +64,46 @@ void draw(){
     if (currBlock.inBounds(currBlock.getX(), currBlock.getY())) {
       currBlock.update();
       currBlock.display();
+      */
     }
     //System.out.println(currBlock.getSpeed());
   }
-  board.getBlocks(0).display();
   
-  // only moving current block
-  /*
-  Block currBlock = board.getBlocks(0);
-  while (currBlock.inBounds()) {
-    currBlock.update();
-    currBlock.display();
+  // displays each individual block of the current block (INDEX 0 - CHANGE THIS LATER)
+  for (int g = 0; g < 4; g++) {
+    board.getBlocks(0)[g].display();
   }
-  */
 }
-int timesdown = 0;
+  
 public void keyPressed() {
   for (int i = 0; i < board.getSize(); i++) {
     if (key == CODED) {
       if (keyCode == UP) {
         // turn CW
-        board.getBlocks(i).turn();
+        for (int f = 0; f < 4; f++) {
+          // FIX TURNING FOR THE TETROMINO
+          // because the position of the block needs to be moved not just the angle
+          board.getBlocks(i)[f].turn();
+        }
       }
       else if (keyCode == DOWN) {
         // accelerate
-          board.getBlocks(i).accelerate(10);
-          timesdown++;
+        for (int f = 0; f < 4; f++) {
+          board.getBlocks(i)[f].accelerate(10);
+        }
+        timesdown++;
       }
       else if (keyCode == LEFT) {
         // move left
-        board.getBlocks(i).move(-1,0);
+        for (int f = 0; f < 4; f++) {
+          board.getBlocks(i)[f].move(-1,0);
+        }
       }
       else if (keyCode == RIGHT) {
         // move right
-        board.getBlocks(i).move(1,0);
+        for (int f = 0; f < 4; f++) {
+          board.getBlocks(i)[f].move(1,0);
+        }
       }
     }
   }
@@ -91,12 +113,15 @@ public void keyReleased(){
   for (int i = 0; i < board.getSize(); i++) {
      if (key == CODED) {
        if (keyCode == DOWN) {
-         board.getBlocks(i).accelerate(-10 * timesdown); 
+         for (int f = 0; f < 4; f++) {
+           board.getBlocks(i)[f].accelerate(-10*timesdown);
+         }
          timesdown = 0;
        }
      }
   }
 }
+
 // placeholder, used to get position of text
 public void mousePressed() {
   System.out.println(mouseX + "," + mouseY);
