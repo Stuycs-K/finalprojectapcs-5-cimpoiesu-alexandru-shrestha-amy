@@ -76,7 +76,7 @@ public void keyPressed() {
       else if (keyCode == DOWN) {
         // accelerate
         for (int f = 0; f < 4; f++) {
-          board.getBlocks(i)[f].accelerate(8);
+          board.getBlocks(i)[f].accelerate(10);
           timesdown++;
         }
       }
@@ -102,8 +102,8 @@ public void keyReleased(){
        if (keyCode == DOWN) {
          for (int f = 0; f < 4; f++) {
            board.getBlocks(i)[f].accelerate(-10*timesdown);
-         timesdown = 0;
          }
+         timesdown = 0;
        }
      }
   }
