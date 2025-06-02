@@ -3,12 +3,10 @@ private Game board = new Game();
 private int timesdown = 0;
 
 void setup(){
-  background(255);
   size(580,660);
+  background(255);
   // possible start screen
   //startGame();
-  
-  draw();
 }
 
 void draw(){
@@ -41,19 +39,34 @@ void draw(){
      
     // update and display each block in the current block
     // make sure to CHANGE THE INDEXES (may turn into 2d array for shape)
-    if (currBlock[i].inBounds(currBlock[0].getX(), currBlock[0].getY()) && currBlock[3].inBounds(currBlock[3].getX(), currBlock[3].getY())) {
+    if (currBlock[0].inBounds(currBlock[0].getX(), currBlock[0].getY()) && currBlock[3].inBounds(currBlock[3].getX(), currBlock[3].getY())) {
       for (int f = 0; f < 4; f++) {
         currBlock[f].update();
         currBlock[f].display();
+        currBlock[f].setMove(false);
       }
     }
     
     // make sure it doesn't exceed the screen
     for (int f = 0; f < 4; f++) {
-      if (currBlock[f].getY() + currBlock[f].getHeight() > 630) {
+      if (currBlock[f].getY() + currBlock[f].getHeight() > 630 && currBlock[f].getMove()) {
         currBlock[f].setY(630 - currBlock[f].getHeight());
       }
+      /*
+    if (currBlock.getY() + currBlock.getHeight() >= 630 && currBlock.getMove()) {
+       System.out.println("Hi");
+       currBlock.setY(630 - currBlock.getHeight());
+       currBlock.update();
+       currBlock.display();
+       currBlock.setMove(false);
     }
+    //System.out.println(currBlock.getHeight() > currBlock.getY()-30);
+    if (currBlock.inBounds(currBlock.getX(), currBlock.getY())) {
+      currBlock.update();
+      currBlock.display();
+      */
+    }
+    //System.out.println(currBlock.getSpeed());
   }
   
   // displays each individual block of the current block (INDEX 0 - CHANGE THIS LATER)
@@ -61,7 +74,7 @@ void draw(){
     board.getBlocks(0)[g].display();
   }
 }
-
+  
 public void keyPressed() {
   for (int i = 0; i < board.getSize(); i++) {
     if (key == CODED) {
@@ -77,8 +90,8 @@ public void keyPressed() {
         // accelerate
         for (int f = 0; f < 4; f++) {
           board.getBlocks(i)[f].accelerate(10);
-          timesdown++;
         }
+        timesdown++;
       }
       else if (keyCode == LEFT) {
         // move left

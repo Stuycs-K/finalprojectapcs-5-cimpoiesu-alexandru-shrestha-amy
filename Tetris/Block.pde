@@ -51,7 +51,7 @@ public class Block {
   public boolean inBounds(int x, int y) {
     return ((x+bWidth) <= 330 && x >= 30 && y >= 30 && (y+bHeight) < 630);
   }
-  
+ 
   public void setMove(boolean val){
      canMove = val;
   }
@@ -59,10 +59,13 @@ public class Block {
   public boolean getMove(){
      return canMove;
   }
- 
+
   // increase the speed of the block
   public void accelerate(int num) {
-    speedDelay += num;
+    speedDelay -= num;
+    if (speedDelay < 1) {
+      speedDelay = 1;
+    }
   }
   
   public int getAngle() {
@@ -80,7 +83,7 @@ public class Block {
   public int getY() {
     return y;
   }
-  
+ 
   public int getWidth() {
     return bWidth;
   }
@@ -94,7 +97,7 @@ public class Block {
   }
   
   public void setSpeed(int num) {
-    speedDelay = num;
+    this.speedDelay = num;
   }
   
   // turns the block CW by 90 degrees
@@ -109,15 +112,15 @@ public class Block {
   
   public void move(int posx, int posy) {
     // right
-    if (posx > 0 && posy == 0 && inBounds(x+1, y)) {
+    if (posx > 0 && posy == 0 && inBounds(x+bWidth, y)) {
       x+=bWidth;
     }
     // left
-    else if (posx < 0 && posy == 0 && inBounds(x-1, y)) {
+    else if (posx < 0 && posy == 0 && inBounds(x-bWidth, y)) {
       x-=bWidth;
     }
     else if (y + posy > 630){
-       y = 630-bHeight; 
+       speedDelay = 630 - bHeight;
     }
   }
 }

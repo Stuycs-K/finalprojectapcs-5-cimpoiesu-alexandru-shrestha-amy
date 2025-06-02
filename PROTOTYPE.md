@@ -11,6 +11,9 @@ Nice to have:
 - restart button
 - different colored blocks
 - storing blocks/seeing next block
+- text font/cool design
+- expected fall template
+- sound/music
 
 We will be using Processing in order to easily visualize the game. We will be using keyPressed(), setup(), draw(), keyCode and various other labs to supplement the creation of this game. In addition, we will be utilizing our knowledge of classes, private/public instance variables, loops, etc. we learned in class to fully flesh out a working tetris game.
      

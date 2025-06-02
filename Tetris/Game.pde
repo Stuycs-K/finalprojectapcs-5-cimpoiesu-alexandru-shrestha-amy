@@ -66,6 +66,7 @@ public class Game{
       index = 0;
     }
     
+    blocks.add(newBlock);
     this.currentBlock = newBlock;
     return newBlock;
   }
