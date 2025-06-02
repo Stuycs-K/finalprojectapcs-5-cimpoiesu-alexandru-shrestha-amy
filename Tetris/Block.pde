@@ -43,7 +43,8 @@ public class Block {
   }
   
   public void display() {
-    fill(20,100);
+    // color of rect
+    fill(128,100);
     rect(x,y,bWidth,bHeight);
   }
   

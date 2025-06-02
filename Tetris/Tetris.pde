@@ -12,10 +12,10 @@ void setup(){
 void draw(){
   background(255);
   
-  // screen for tetris
-  // should be 10 blocks wide, 20 blocks high
+  // screen for tetris (10 blocks wide, 20 blocks high)
   stroke(5);
-  fill(200,50); // opacity 50
+  // color of screen, etc.
+  fill(64,20); // 2nd value opacity
   rect(30,30,300,600);
   
   // screen for nextBlock
@@ -34,23 +34,40 @@ void draw(){
   text(scoreStr, 380, 315);
   
   // update movement of block
-  for (int i = 0; i < board.getBlocks().size(); i++) {
-     Block[] currBlock = board.getBlocks(i);
+  for (int i = 0; i < board.getBlockArray().size(); i++) {
+     Tetromino currBlock = board.getBlockArray(i);
+     Block[] myBlocks = currBlock.getBlocks();
      
-    // update and display each block in the current block
-    // make sure to CHANGE THE INDEXES (may turn into 2d array for shape)
-    if (currBlock[0].inBounds(currBlock[0].getX(), currBlock[0].getY()) && currBlock[3].inBounds(currBlock[3].getX(), currBlock[3].getY())) {
-      for (int f = 0; f < 4; f++) {
-        currBlock[f].update();
-        currBlock[f].display();
-        currBlock[f].setMove(false);
+     //check if currBlock has hit the bottom
+     for (int f = 0; f < 4; f++) {
+     if (myBlocks[f].getY() + myBlocks[f].getHeight() >= 630) {
+       board.nextBlock();
+       break;
+     }
+     }
+     
+    boolean allInBound = true;
+    for (int f = 0; f < 4; f++) {
+      if (!(myBlocks[f].inBounds(myBlocks[f].getX(), myBlocks[f].getY()))) {
+        allInBound = false;
       }
+    }
+    
+    if (allInBound) {
+      currBlock.update();
+      currBlock.display();
+      for (int g = 0; g < 4; g++) {
+        myBlocks[g].setMove(false);
+      }
+    }
+    else {
+      board.nextBlock();
     }
     
     // make sure it doesn't exceed the screen
     for (int f = 0; f < 4; f++) {
-      if (currBlock[f].getY() + currBlock[f].getHeight() > 630 && currBlock[f].getMove()) {
-        currBlock[f].setY(630 - currBlock[f].getHeight());
+      if (myBlocks[f].getY() + myBlocks[f].getHeight() > 630 && myBlocks[f].getMove()) {
+        myBlocks[f].setY(630 - myBlocks[f].getHeight());
       }
       /*
     if (currBlock.getY() + currBlock.getHeight() >= 630 && currBlock.getMove()) {
@@ -71,7 +88,7 @@ void draw(){
   
   // displays each individual block of the current block (INDEX 0 - CHANGE THIS LATER)
   for (int g = 0; g < 4; g++) {
-    board.getBlocks(0)[g].display();
+    board.getBlockArray(0).getBlocks()[g].display();
   }
 }
   
@@ -83,26 +100,26 @@ public void keyPressed() {
         for (int f = 0; f < 4; f++) {
           // FIX TURNING FOR THE TETROMINO
           // because the position of the block needs to be moved not just the angle
-          board.getBlocks(i)[f].turn();
+          board.getBlockArray(i).getBlocks()[f].turn();
         }
       }
       else if (keyCode == DOWN) {
         // accelerate
         for (int f = 0; f < 4; f++) {
-          board.getBlocks(i)[f].accelerate(10);
+          board.getBlockArray(i).getBlocks()[f].accelerate(10);
         }
         timesdown++;
       }
       else if (keyCode == LEFT) {
         // move left
         for (int f = 0; f < 4; f++) {
-          board.getBlocks(i)[f].move(-1,0);
+          board.getBlockArray(i).getBlocks()[f].move(-1,0);
         }
       }
       else if (keyCode == RIGHT) {
         // move right
         for (int f = 0; f < 4; f++) {
-          board.getBlocks(i)[f].move(1,0);
+          board.getBlockArray(i).getBlocks()[f].move(1,0);
         }
       }
     }
@@ -114,7 +131,7 @@ public void keyReleased(){
      if (key == CODED) {
        if (keyCode == DOWN) {
          for (int f = 0; f < 4; f++) {
-           board.getBlocks(i)[f].accelerate(-10*timesdown);
+           board.getBlockArray(i).getBlocks()[f].accelerate(-10*timesdown);
          }
          timesdown = 0;
        }
@@ -125,4 +142,5 @@ public void keyReleased(){
 // placeholder, used to get position of text
 public void mousePressed() {
   System.out.println(mouseX + "," + mouseY);
+  //board.endGame();
 }
