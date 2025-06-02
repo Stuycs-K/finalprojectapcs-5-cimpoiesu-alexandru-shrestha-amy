@@ -5,7 +5,7 @@ public class Game{
   private ArrayList<Block[]> blocks; 
   private Block[][] screen;
   
-  private ArrayList<Block[]> blockType;
+  private ArrayList<Block[][]> blockType;
   private int index;
   private Block[] currentBlock;
   //private Block[][][] blocks;
@@ -15,7 +15,7 @@ public class Game{
     this.level = 1;
     this.score = 0;
     
-    this.blockType = new ArrayList<Block[]>();
+    this.blockType = new ArrayList<Block[][]>();
     this.index = 1;
     blockSetup();
     
@@ -78,9 +78,14 @@ public class Game{
     }
     blockType.add(bI);
     
+    Block[][] bJ = new Block[2][2];
+    for (int i = 0; i < bJ.length;i++){
+      for (int j = 0; j < bJ[0].length; j++){
+          bJ[i][j] = new Block(i*30+120,30); 
+       }
+    }
+    blockType.add(bJ);
     /*
-    Block[] bJ = new Block[4];
-    
     Block[] bL = new Block[4];
     
     Block[] bO = new Block[4];
