@@ -1,12 +1,9 @@
 public class Block {
-  private int x;
-  private int y;
+  private int x, y;
   private int angle;
-  private int bWidth;
-  private int bHeight;
-  private int millisec;
-  private int speedDelay;
-
+  private int bWidth, bHeight;
+  private int millisec, speedDelay;
+  private int origSpeed, accSpeed;
   
   public Block(){
     this.angle = 0;
@@ -16,6 +13,8 @@ public class Block {
     this.bHeight = 30;
     this.millisec = millis();
     this.speedDelay = 550;
+    this.origSpeed = speedDelay;
+    this.accSpeed = 50;
   }
   
   public Block(int x, int y){
@@ -27,6 +26,8 @@ public class Block {
     this.millisec = millis();
     
     this.speedDelay = 550;
+    this.origSpeed = speedDelay;
+    this.accSpeed = 50;
   }
   
   // automatic falling of block
@@ -55,10 +56,16 @@ public class Block {
   
   // increase the speed of the block
   public void accelerate(int num) {
-    speedDelay -= (num*10);
-    if (speedDelay < 0) {
+    accSpeed += (num*10);
+    speedDelay = origSpeed - accSpeed;
+    if (speedDelay < 1) {
       speedDelay = 1;
     }
+  }
+  
+  public void stopAcc() {
+    accSpeed = 0;
+    speedDelay = origSpeed;
   }
   
   public int getAngle() {
@@ -66,7 +73,7 @@ public class Block {
   }
   
   public int getSpeed() {
-    return speedDelay;
+    return origSpeed;
   }
   
   public int getX() {
@@ -89,6 +96,10 @@ public class Block {
     this.y = y;
   }
   
+  public void setSpeed(int num) {
+    origSpeed = num;
+  }
+  
   // turns the block CW by 90 degrees
   // will not exceed 360 degrees
   public void turn() {
@@ -98,6 +109,7 @@ public class Block {
   
   // move the block left or right by one
   // depending on key
+  
   public void move(int posx, int posy) {
     // right
     if (posx > 0 && posy == 0 && inBounds(x+1, y)) {
@@ -106,6 +118,9 @@ public class Block {
     // left
     else if (posx < 0 && posy == 0 && inBounds(x-1, y)) {
       x-=bWidth;
+    }
+    else if (y + posy > 630){
+       y = 630-bHeight; 
     }
   }
 }

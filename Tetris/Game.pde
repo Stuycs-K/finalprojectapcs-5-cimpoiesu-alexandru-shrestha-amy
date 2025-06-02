@@ -31,14 +31,18 @@ public class Game{
   public ArrayList<Block[]> getBlocks(){
     return blocks;
   }
-
+ 
   public Block[] getBlocks(int i){
    return blocks.get(0); 
   }
 
   public Block nextBlock(){
     level++;
-    
+    for (int i = 0; i < getBlocks().size(); i++) {
+      for (int f = 0; f < 4; f++) {
+        getBlocks(i)[f].setSpeed(getBlocks(i)[f].getSpeed() + 5);
+      }
+    }
     return new Block();
   }
   

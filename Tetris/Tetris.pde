@@ -1,5 +1,6 @@
 import java.util.*;
 private Game board = new Game();
+private boolean acc = false;
 
 void setup(){
   background(255);
@@ -69,8 +70,9 @@ public void keyPressed() {
       }
       else if (keyCode == DOWN) {
         // accelerate
+        acc = true;
         for (int f = 0; f < 4; f++) {
-          board.getBlocks(i)[f].accelerate(10);
+          board.getBlocks(i)[f].accelerate(8);
         }
       }
       else if (keyCode == LEFT) {
@@ -90,7 +92,12 @@ public void keyPressed() {
 }
 
 public void keyReleased() {
-  // use to fix accelerate
+  acc = false;
+  for (int i = 0; i < board.getSize(); i++) {
+    for (int f = 0; f < 4; f++) {
+      board.getBlocks(i)[f].stopAcc();
+    }
+  }
 }
 
 // placeholder, used to get position of text
