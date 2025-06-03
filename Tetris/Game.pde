@@ -2,24 +2,28 @@ import java.util.*;
 public class Game{
   private int level;
   private int score;
-  private ArrayList<Block[]> blocks; 
+  // all blocks on the screen
+  private ArrayList<Tetromino> blocks;
+  // a 2D array of Blocks that keeps every block's position
   private Block[][] screen;
   
-  private ArrayList<Block[][]> blockType;
+  // all types of 4-Block combinations
+  private ArrayList<Tetromino> blockType;
+  // blockType index for looping
   private int index;
-  private Block[] currentBlock;
-  //private Block[][][] blocks;
+  // current Tetrimino
+  private Tetromino currentBlock;
   private int rowsCleared;
   
   public Game(){
     this.level = 1;
     this.score = 0;
     
-    this.blockType = new ArrayList<Block[][]>();
-    this.index = 1;
-    blockSetup();
+    this.blockType = new ArrayList<Tetromino>();
+    this.index = 0;
+    blockSetup(); // ERROR
     
-    this.blocks = new ArrayList<Block[]>();
+    this.blocks = new ArrayList<Tetromino>();
     blocks.add(blockType.get(0));
     this.screen = new Block[20][10];
     
@@ -39,26 +43,28 @@ public class Game{
    return blocks.size(); 
   }
 
-  public ArrayList<Block[]> getBlocks(){
+  public ArrayList<Tetromino> getBlockArray(){
     return blocks;
   }
  
-  public Block[] getBlocks(int i){
+  public Tetromino getBlockArray(int i){
    return blocks.get(i); 
   }
+  
+  public Tetromino getCurr(){
+   return currentBlock;
+  }
 
-  public Block[] nextBlock(){
+  public Tetromino nextBlock(){
     level++;
     // increases speed
-    for (int i = 0; i < getBlocks().size(); i++) {
-      for (int f = 0; f < 4; f++) {
-        getBlocks(i)[f].setSpeed(getBlocks(i)[f].getSpeed() + 3);
-      }
+    for (int i = 0; i < getBlockArray().size(); i++) {
+       getBlockArray(i).setSpeed(getBlockArray(i).getSpeed() + 3);
     }
     
     // randomizes block choice each time
     Collections.shuffle(blockType);
-    Block[] newBlock = blockType.get(index);
+    Tetromino newBlock = blockType.get(index);
     index++;
     
     // resets index if it surpasses blockType length
@@ -66,35 +72,32 @@ public class Game{
       index = 0;
     }
     
-    blocks.add(newBlock);
-    this.currentBlock = newBlock;
+    blocks.add(blocks.get(0));
+    blocks.set(0, newBlock);
+    this.currentBlock = blocks.get(0);
+    System.out.println(currentBlock.getSpeed());
     return newBlock;
   }
   
   public void blockSetup(){
-    Block[] bI = new Block[4];
-    for (int i = 0; i < bI.length; i++) {
-      bI[i] = new Block(i*30+120,30);
+    Tetromino bI = new Tetromino(new Block[4]);
+    for (int i = 0; i < bI.getBlocks().length; i++) {
+      bI.getBlocks()[i] = new Block(i*30+120,30);
     }
     blockType.add(bI);
     
-    Block[][] bJ = new Block[2][2];
-    for (int i = 0; i < bJ.length;i++){
-      for (int j = 0; j < bJ[0].length; j++){
-          bJ[i][j] = new Block(i*30+120,30); 
-       }
-    }
-    blockType.add(bJ);
     /*
-    Block[] bL = new Block[4];
+    Tetromino bJ = new Block[4];
     
-    Block[] bO = new Block[4];
+    Tetromino bL = new Block[4];
     
-    Block[] bS = new Block[4];
+    Tetromino bO = new Block[4];
     
-    Block[] bT = new Block[4];
+    Tetromino bS = new Block[4];
     
-    Block[] bZ = new Block[4];
+    Tetromino bT = new Block[4];
+    
+    Tetromino bZ = new Block[4];
     */
   }
 

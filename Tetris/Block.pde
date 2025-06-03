@@ -36,14 +36,15 @@ public class Block {
     // so it moves y based on delay in milliseconds
     if (currentMilli - millisec >= speedDelay) {
       if (inBounds(x, y)) {
-        y += bHeight;
+        this.y += bHeight;
       }
       millisec = currentMilli;
     }
   }
   
   public void display() {
-    fill(20,100);
+    // color of rect
+    fill(128,100);
     rect(x,y,bWidth,bHeight);
   }
   
@@ -53,7 +54,7 @@ public class Block {
   }
  
   public void setMove(boolean val){
-     canMove = val;
+     this.canMove = val;
   }
   
   public boolean getMove(){
@@ -103,8 +104,8 @@ public class Block {
   // turns the block CW by 90 degrees
   // will not exceed 360 degrees
   public void turn() {
-    angle += 90;
-    angle = angle % 360;
+    this.angle += 90;
+    this.angle = angle % 360;
   }
   
   // move the block left or right by one
@@ -113,14 +114,14 @@ public class Block {
   public void move(int posx, int posy) {
     // right
     if (posx > 0 && posy == 0 && inBounds(x+bWidth, y)) {
-      x+=bWidth;
+      this.x+=bWidth;
     }
     // left
     else if (posx < 0 && posy == 0 && inBounds(x-bWidth, y)) {
-      x-=bWidth;
+      this.x-=bWidth;
     }
     else if (y + posy > 630){
-       speedDelay = 630 - bHeight;
+       this.speedDelay = 630 - bHeight;
     }
   }
 }
