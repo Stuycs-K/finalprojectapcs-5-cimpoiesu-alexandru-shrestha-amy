@@ -8,7 +8,7 @@ public class Game{
   //private ArrayList<Tetromino> blocks;
   // a 2D array of Blocks that keeps every block's position
   //private Block[][] screen;
-  Block[][]screen;
+  public Block[][] screen;
   // all types of 4-Block combinations
   private ArrayList<Tetromino> blockType;
   // blockType index for looping

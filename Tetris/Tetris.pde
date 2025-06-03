@@ -80,8 +80,7 @@ void draw(){
 }
   
 public void keyPressed() {
-  for (int i = 0; i < board.getSize(); i++) {
-    if (key == CODED) {
+  /*
       if (keyCode == UP) {
         // turn CW
         for (int f = 0; f < 4; f++) {
@@ -90,25 +89,27 @@ public void keyPressed() {
           board.getBlockArray(i).getBlocks()[f].turn();
         }
       }
-      else if (keyCode == DOWN) {
+      */
+      if (keyCode == DOWN) {
+        if(!board.currentBlock.move(0,1,board.screen)){
+          board.currentBlock.atBottom(board.screen);
+          board.clearRow();
+          board.spawnTetromino();
+        }
+       
         // accelerate
-        timesdown+=board.getBlockArray(i).accelerate(10);
+        //timesdown+=board.getBlockArray(i).accelerate(10);
       }
       else if (keyCode == LEFT) {
         // move left
-        for (int f = 0; f < 4; f++) {
-          board.getBlockArray(i).getBlocks()[f].move(-1,0);
-        }
+      board.currentBlock.move(-1,0,board.screen);
       }
       else if (keyCode == RIGHT) {
         // move right
-        for (int f = 0; f < 4; f++) {
-          board.getBlockArray(i).getBlocks()[f].move(1,0);
+        board.currentBlock.move(1,0,board.screen);
         }
-      }
-    }
-  }
-}
+  }  
+/*
 
 public void keyReleased(){
   for (int i = 0; i < board.getSize(); i++) {
@@ -128,3 +129,4 @@ public void mousePressed() {
   System.out.println(mouseX + "," + mouseY);
   //board.endGame();
 }
+*/

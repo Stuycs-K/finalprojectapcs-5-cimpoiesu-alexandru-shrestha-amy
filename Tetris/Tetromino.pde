@@ -55,12 +55,16 @@ public class Tetromino {
     for(Block block:blocks){
       int Xcor = block.x + x * block.getSize();
       int Ycor = block.y + y * block.getSize();
-      if(!block.inBounds(Xcor,Ycor) || Game.getScreen()[(Xcor - 30) / block.getSize()][(Ycor - 30) / block.getSize()]!=null)
+      if(!block.inBounds(Xcor,Ycor) || grid[(Xcor - 30) / block.getSize()][(Ycor - 30) / block.getSize()]!=null)
     {
        return false; 
     }
    }
-   
+   for(Block block:blocks){
+    block.x += x * block.getSize();
+    block.y += y * block.getSize();
+   }
+   return true;
   }
   
   public int accelerate(int num) {
