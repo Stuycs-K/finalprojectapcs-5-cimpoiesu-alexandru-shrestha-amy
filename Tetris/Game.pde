@@ -31,6 +31,7 @@ public class Game{
     
     this.currentBlock = blockType.get(0);
     this.rowsCleared = 0;
+    blockSetup();
   }
 
   public int getLevel(){
@@ -40,11 +41,10 @@ public class Game{
   public int getScore(){
      return score; 
   }
-
+/*
   public int getSize(){
    return blocks.size(); 
   }
-
   public ArrayList<Tetromino> getBlockArray(){
     return blocks;
   }
@@ -52,7 +52,8 @@ public class Game{
   public Tetromino getBlockArray(int i){
    return blocks.get(i); 
   }
-  
+*/
+ 
   public Tetromino getCurr(){
    return currentBlock;
   }
@@ -130,7 +131,18 @@ public class Game{
     bZ[3] = new Block(30 * 6 + 30, 60);
     blockType.add(new Tetromino(bZ));
   }
-
+  
+  public void spawnTetromino(){
+    int index = (int) random(blockType.size());
+    Tetromino block = blockType.get(index);
+    Block[] blocks = new Block[4];
+    for(int i = 0; i < 4; i++) {
+       blocks[i] = new Block(block.getBlocks()[i].getX(), block.getBlocks()[i].getY());
+    }
+    currentBlock = new Tetromino(blocks);
+  }
+  
+  
   public boolean clearRow(int row){
     if (rowsCleared == 10) {
       level++;
