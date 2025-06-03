@@ -28,10 +28,9 @@ public class Game{
     //this.blocks = new ArrayList<Tetromino>();
     //blocks.add(blockType.get(0));
     this.screen = new Block[20][10];
-    
+    blockSetup();
     this.currentBlock = blockType.get(0);
     this.rowsCleared = 0;
-    blockSetup();
   }
 
   public int getLevel(){
@@ -84,7 +83,7 @@ public class Game{
     return newBlock;
   }
   */
-    public void draw(){
+    public void play(){
    for(int i = 0; i < 20; i++){
      for(int j = 0; j < 10; j++){
       if(screen[i][j] !=null){
@@ -100,16 +99,24 @@ public class Game{
     if(currentBlock != null){
       currentBlock.display();
     }
-    noFill();
-    stroke(0);
-    rect(30,30,300,600);
-    noStroke();
-    fill(0);
-    textSize(25);
-    String levelStr = "LEVEL:     " + level;
-    text(levelStr, 380, 271);
-    String scoreStr = "SCORE:    " + score;
-    text(scoreStr, 380, 315);
+      // color of screen, etc.
+  fill(64,20); // 2nd value opacity
+  rect(30,30,300,600);
+  
+  // screen for nextBlock
+  rect(360, 30, width-30-360, 180);
+  
+  // screen for text
+  rect(360, 240, width-30-360, 90);
+  line(360, 285, 550, 285);
+  
+  // text for score + level
+  fill(0);
+  textSize(25);
+  String levelStr = "LEVEL:     " + board.getLevel();
+  text(levelStr, 380, 271);
+  String scoreStr = "SCORE:    " + board.getScore();
+  text(scoreStr, 380, 315);
   }
 
   public void blockSetup(){

@@ -12,7 +12,7 @@ void setup(){
 void draw(){
   background(255);
   board.update();
-  board.draw();
+  board.play();
   /*
   // screen for tetris (10 blocks wide, 20 blocks high)
   stroke(5);
