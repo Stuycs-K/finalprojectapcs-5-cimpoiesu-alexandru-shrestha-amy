@@ -57,7 +57,7 @@ public class Game{
   public Tetromino getCurr(){
    return currentBlock;
   }
-
+/*
   public Tetromino nextBlock(){
     level++;
     // increases speed
@@ -81,7 +81,7 @@ public class Game{
     System.out.println(currentBlock.getSpeed());
     return newBlock;
   }
-  
+  */
   public void blockSetup(){
     Block[] bI = new Block[4];
     for (int i = 0; i < 4; i++) {
@@ -143,27 +143,48 @@ public class Game{
   }
   
   
-  public boolean clearRow(int row){
-    if (rowsCleared == 10) {
-      level++;
-      rowsCleared = 0;
-    }
+  public void clearRow(){
+    //if (rowsCleared == 10) {
+      //level++;
+      //rowsCleared = 0;
+    //}
     
-    for (int r = 0; r < screen.length; r++) {
-      for (int c = 0; c < screen[0].length; c++) {
-        if (r == row) {
+    for (int r = 19; r >= 0; r--) {
+      boolean full = true;
+      for (int c = 0; c < 10; c++) {
+        if (screen[r][c]==null) {
           // if you can clear the row
           // clear the row and move everything down
-          score++;
-          rowsCleared++;
-          
-          return true;
+          full = false;
+          return;
         }
+      }
+    if(full){
+       score += 100 * level;
+       for(int i = r; i > 0; i--){
+         for(int j = 0; j < 10; j++){
+           screen[i][j] = screen[i-1][j];
+           if(screen[i][j] != null){
+              screen[i][j].y += 30; // add a set y 
+           }
+         }
+       }
+       for(in col = 0; col < 10; col++){
+          screen[0][col] = null; 
+       }
+       r++;
+    }
+  }
+ }
+  private boolean gameOver() {
+    for (int i = 0; i < 10; i++) {
+      if (screen[0][i] != null) {
+        return true;
       }
     }
     return false;
   }
-
+    
   public void endGame(){
     background(0);
     fill(color(0));
