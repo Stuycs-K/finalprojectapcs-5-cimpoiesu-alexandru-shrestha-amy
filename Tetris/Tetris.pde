@@ -68,6 +68,7 @@ void keyPressed() {
             // FIX TURNING FOR THE TETROMINO
             // because the position of the block needs to be moved not just the angle
             blocks[r][c].turn();
+            board.getCurr().setupCoor();
           }
         }
       }
@@ -77,18 +78,14 @@ void keyPressed() {
       }
       else if (keyCode == LEFT) {
         // move left
-        for (int r = 0; r < blocks.length; r++) {
-          for (int c = 0; c < blocks[r].length; c++) {
-            blocks[r][c].move(-1,0);
-          }
+        if (board.getCurr().canMove(-1,0)) {
+          board.getCurr().move(-1,0);
         }
       }
       else if (keyCode == RIGHT) {
         // move right
-        for (int r = 0; r < blocks.length; r++) {
-          for (int c = 0; c < blocks[r].length; c++) {
-            blocks[r][c].move(1,0);
-          }
+        if (board.getCurr().canMove(-1,0)) {
+          board.getCurr().move(1,0);
         }
       }
     }

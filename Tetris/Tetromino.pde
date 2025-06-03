@@ -127,19 +127,52 @@ public class Tetromino {
     return false;
   }
   
-  public boolean inBounds(int x, int y) {
-    return ((x+blocks[0][0].getWidth()) <= 330 && x >= 30 && y >= 30 && (y+blocks[0][0].getHeight()) < 630);
+  public boolean canMove(int posx, int posy) {
+    for (int r = 0; r < blocks.length; r++) {
+      for (int c = 0; c <  blocks[0].length; c++) {
+        if (blocks[r][c] != null) {
+          if (!blocks[r][c].inBounds(blocks[r][c].getX() + blocks[r][c].getWidth()*posx, blocks[r][c].getY())) {
+            return false;
+          }
+        }
+      }
+    }
+    return true;
   }
   
   public boolean inBounds() {
     for (int r = 0; r < blocks.length; r++) {
       for (int c = 0; c <  blocks[0].length; c++) {
-        if (blocks[r][c] != null && !(blocks[r][c].inBounds(blocks[r][c].getX(), blocks[r][c].getY()))) {
-          return false;
+        if (blocks[r][c] != null) {
+          if (!blocks[r][c].inBounds(blocks[r][c].getX(), blocks[r][c].getY())) {
+            return false;
+          }
         }
       }
     }
     return true;
+  }
+  
+  public void move(int posx, int posy) {
+    for (int r = 0; r < blocks.length; r++) {
+      for (int c = 0; c <  blocks[0].length; c++) {
+        if (blocks[r][c] != null) {
+          int bWidth = blocks[r][c].getWidth();
+    // right
+    if (posx > 0 && posy == 0 && blocks[r][c].inBounds(blocks[r][c].getX()+bWidth, blocks[r][c].getY())) {
+      blocks[r][c].setX(blocks[r][c].getX()+bWidth);
+    }
+    // left
+    else if (posx < 0 && posy == 0 && blocks[r][c].inBounds(blocks[r][c].getX()-bWidth, blocks[r][c].getY())) {
+      blocks[r][c].setX(blocks[r][c].getX()-bWidth);
+    }
+    else if (blocks[r][c].getY() + posy > 630){
+       this.speedDelay = 630 - blocks[r][c].getHeight();
+    }
+        }
+      }
+    }
+    setupCoor();
   }
 }
   
