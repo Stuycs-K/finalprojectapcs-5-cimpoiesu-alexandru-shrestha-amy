@@ -6,13 +6,13 @@ public class Tetromino {
   
   public Tetromino(Block[] blocks) {
     this.blocks = blocks;
-    this.millisec = millis();
+    //this.millisec = millis();
     //this.speedDelay = 550;
-    this.canMove = true;
-    this.xy = new int[4][2];
-    setupCoor();
+    //this.canMove = true;
+    //this.xy = new int[4][2];
+    //setupCoor();
   }
-  
+  /*
   public void setupCoor() {
     for (int r = 0; r < 4; r++) {
        this.xy[r][0] = blocks[0].getX();
@@ -31,7 +31,7 @@ public class Tetromino {
       this.millisec = currentMilli;
     }
   }
-  
+  */
   public void display() {
     for (int f = 0; f < blocks.length; f++) {
       blocks[f].display();
@@ -62,6 +62,7 @@ public class Tetromino {
     return times;
   }
  
+ /*
   public void setMove(boolean val){
      for (int g = 0; g < 4; g++) {
        this.canMove = val;
@@ -71,6 +72,7 @@ public class Tetromino {
   public boolean getMove(){
      return canMove;
   }
+  */
   
   public boolean needNextBlock() {
     for (int f = 0; f < blocks.length; f++) {
@@ -81,9 +83,11 @@ public class Tetromino {
     return false;
   }
   
-  public boolean inBounds() {
-    boolean allInBound = true;
+  public boolean inBounds(Block[][] game) {
+    //boolean allInBound = true;
     for (int f = 0; f < 4; f++) {
+      int row = (blocks.getY() - 30) / blocks.bSize;
+      
       if (!(getBlocks()[f].inBounds(getBlocks()[f].getX(), getBlocks()[f].getY()))) {
         allInBound = false;
       }

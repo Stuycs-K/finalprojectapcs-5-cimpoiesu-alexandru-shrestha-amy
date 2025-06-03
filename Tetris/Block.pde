@@ -49,14 +49,31 @@ public class Block {
   public void display() {
     // color of rect
     fill(128,100);
-    rect(x,y,bWidth,bHeight);
+    rect(x,y,bSize,bSize);
+    stroke(0);
+    noFill();
+    rect(x, y, bSize, bSize);
+    noStroke();
   }
   
   // returns true if in bounds of tetris block screen
   public boolean inBounds(int x, int y) {
-    return x < 330 && x >= 30 && y >= 30 && y < 630);
+    return x < 330 && x >= 30 && y >= 30 && y < 630;
   }
- 
+  
+  public int getX() {
+    return x;
+  }
+  
+  public int getY() {
+    return y;
+  }
+  
+  public int getSize(){
+     return bSize; 
+  }
+  
+ /*
   public void setMove(boolean val){
      this.canMove = val;
   }
@@ -80,15 +97,7 @@ public class Block {
   public int getSpeed() {
     return speedDelay;
   }
-  
-  public int getX() {
-    return x;
-  }
-  
-  public int getY() {
-    return y;
-  }
- 
+   
   public int getWidth() {
     return bWidth;
   }
@@ -128,4 +137,5 @@ public class Block {
        this.speedDelay = 630 - bHeight;
     }
   }
+  */
 }
