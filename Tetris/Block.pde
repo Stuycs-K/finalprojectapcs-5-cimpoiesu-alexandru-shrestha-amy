@@ -1,59 +1,81 @@
 public class Block {
   private int x, y;
-  private int angle;
-  private int bWidth, bHeight;
-  private int millisec, speedDelay;
-  private boolean canMove;
+  //private int angle;
+  //private int bWidth, bHeight; //we don't need both of these each block is a square
+  private int bSize; // only 1 dimension needed
+  //private int millisec, speedDelay;
+  //private boolean canMove;
   
   public Block(){
-    this.angle = 0;
+    //this.angle = 0;
     this.x = 150;
     this.y = 30;
-    this.bWidth = 30;
-    this.bHeight = 30;
-    this.millisec = millis();
-    this.speedDelay = 550;
-    this.canMove = true;
+    this.bSize = 30;
+    //this.bWidth = 30;
+    //this.bHeight = 30;
+    //this.millisec = millis();
+    //this.speedDelay = 550;
+    //this.canMove = true;
   }
   
   public Block(int x, int y){
-    this.angle = 0;
+    //this.angle = 0;
     this.x = x;
     this.y = y;
-    this.bWidth = 30;
-    this.bHeight = 30;
-    this.millisec = millis();
+    this.bSize = 30;
+    //this.bWidth = 30;
+    //this.bHeight = 30;
+    //this.millisec = millis();
     
-    this.speedDelay = 550;
-    this.canMove = true;
+    //this.speedDelay = 550;
+    //this.canMove = true;
   }
   
   // automatic falling of block
   // SHOULD BE BLOCK BY BLOCK
+  /*
  public void update() {
     int currentMilli = millis();
     // calc a delay that doesn't affect the update()
     // so it moves y based on delay in milliseconds
     if (currentMilli - millisec >= speedDelay) {
       if (inBounds(x, y)) {
-        y += bHeight;
+        this.y += bHeight;
       }
       millisec = currentMilli;
     }
   }
-  
+  */
   public void display() {
-    fill(20,100);
-    rect(x,y,bWidth,bHeight);
+    // color of rect
+    fill(128,100);
+    rect(x,y,bSize,bSize);
+    stroke(0);
+    noFill();
+    rect(x, y, bSize, bSize);
+    noStroke();
   }
   
   // returns true if in bounds of tetris block screen
   public boolean inBounds(int x, int y) {
-    return ((x+bWidth) <= 330 && x >= 30 && y >= 30 && (y+bHeight) < 630);
+    return x < 330 && x >= 30 && y >= 30 && y < 630;
   }
- 
+    
+  public int getX() {
+    return x;
+  }
+  
+  public int getY() {
+    return y;
+  }
+  
+  public int getSize(){
+     return bSize; 
+  }
+  
+ /*
   public void setMove(boolean val){
-     canMove = val;
+     this.canMove = val;
   }
   
   public boolean getMove(){
@@ -75,15 +97,7 @@ public class Block {
   public int getSpeed() {
     return speedDelay;
   }
-  
-  public int getX() {
-    return x;
-  }
-  
-  public int getY() {
-    return y;
-  }
- 
+   
   public int getWidth() {
     return bWidth;
   }
@@ -103,8 +117,8 @@ public class Block {
   // turns the block CW by 90 degrees
   // will not exceed 360 degrees
   public void turn() {
-    angle += 90;
-    angle = angle % 360;
+    this.angle += 90;
+    this.angle = angle % 360;
   }
   
   // move the block left or right by one
@@ -113,14 +127,15 @@ public class Block {
   public void move(int posx, int posy) {
     // right
     if (posx > 0 && posy == 0 && inBounds(x+bWidth, y)) {
-      x+=bWidth;
+      this.x+=bWidth;
     }
     // left
     else if (posx < 0 && posy == 0 && inBounds(x-bWidth, y)) {
-      x-=bWidth;
+      this.x-=bWidth;
     }
     else if (y + posy > 630){
-       speedDelay = 630 - bHeight;
+       this.speedDelay = 630 - bHeight;
     }
   }
+  */
 }
