@@ -100,10 +100,19 @@ public class Game{
     bL[3] = new Block(30 * 5 + 30, 60);
     //blockType.add(new Tetromino(bL));
 
-
     Block[] bO = new Block[4];
+    bO[0] = new Block(30 * 4+30, 30);
+    bO[1] = new Block(30*5+30,30);
+    bO[2] = new Block(30 * 4 + 30,60);
+    bO[3] = new Block(30 * 5 + 30, 60);
+    //blockType.add(new Tetromino(bO));
     
     Block[] bS = new Block[4];
+    bS[0] = new Block(30 * 5 + 30, 30);
+    bS[1] = new Block(30 * 6 + 30, 30);
+    bS[2] = new Block(30* 4 + 30, 60);
+    bS[3] = new Block(30 * 5 + 30, 60);   
+    //blockType.add(new Tetromino(bO));
     
     Block[] bT = new Block[4];
     
