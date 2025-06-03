@@ -32,7 +32,7 @@ Fixed endGame() text, and update it to stop the update() of all the blocks using
 Fixed accelerate error with a Tetromino (4 Block) and modified all code to a Block array. Spent approx. 2 hours.
 
 ### 2025-06-02 - NextBlock and Boundaries
-Fixing boundaries, needNextBlock(), and acceleration on a 2D block array of Tetrominos. Spent approx. 3 hours 20 minutes.
+Fixing boundaries, needNextBlock(), and acceleration on a 2D block array of Tetrominos. Spent approx. 3 hours 50 minutes.
 
 
 
