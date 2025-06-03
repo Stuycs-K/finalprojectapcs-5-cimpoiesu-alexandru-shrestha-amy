@@ -21,7 +21,7 @@ public class Game{
     
     this.blockType = new ArrayList<Tetromino>();
     this.index = 0;
-    blockSetup(); // ERROR
+    blockSetup();
     
     this.blocks = new ArrayList<Tetromino>();
     blocks.add(blockType.get(0));
@@ -75,17 +75,17 @@ public class Game{
     blocks.add(blocks.get(0));
     blocks.set(0, newBlock);
     this.currentBlock = blocks.get(0);
-    System.out.println(currentBlock.getSpeed());
     return newBlock;
   }
   
   public void blockSetup(){
-    Tetromino bI = new Tetromino(new Block[4]);
-    for (int i = 0; i < bI.getBlocks().length; i++) {
-      bI.getBlocks()[i] = new Block(i*30+120,30);
+    Block[][] newPile = new Block[1][4];
+    for (int i = 0; i < 4; i++) {
+      newPile[0][i] = new Block(i*30+120,30);
     }
-    blockType.add(bI);
     
+    Tetromino bI = new Tetromino(newPile);
+    blockType.add(bI);
     /*
     Tetromino bJ = new Block[4];
     
