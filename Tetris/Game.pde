@@ -125,7 +125,7 @@ public class Game{
     bZ[0] = new Block (30 * 4 + 30, 30);
     bZ[1] = new Block(30 * 5 + 30,30);
     bZ[2] = new Block(30 * 5 + 30, 60);
-    bZ[3] = new Block(30 * 6 + 30, 60):
+    bZ[3] = new Block(30 * 6 + 30, 60);
     //blockType.add(new Tetromino(bZ));
   }
 

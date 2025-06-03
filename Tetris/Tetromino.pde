@@ -7,7 +7,7 @@ public class Tetromino {
   public Tetromino(Block[] blocks) {
     this.blocks = blocks;
     this.millisec = millis();
-    this.speedDelay = 550;
+    //this.speedDelay = 550;
     this.canMove = true;
     this.xy = new int[4][2];
     setupCoor();
