@@ -115,8 +115,18 @@ public class Game{
     //blockType.add(new Tetromino(bO));
     
     Block[] bT = new Block[4];
+    bT[0] = new Block(30 * 4+30, 30);
+    bT[1] = new Block(30*3+30,60);
+    bT[2] = new Block(30 * 4 + 30,60);
+    bT[3] = new Block(30 * 5 + 30, 60); 
+    //blockType.add(new Tetromino(bT));
     
     Block[] bZ = new Block[4];
+    bZ[0] = new Block (30 * 4 + 30, 30);
+    bZ[1] = new Block(30 * 5 + 30,30);
+    bZ[2] = new Block(30 * 5 + 30, 60);
+    bZ[3] = new Block(30 * 6 + 30, 60):
+    //blockType.add(new Tetromino(bZ));
   }
 
   public boolean clearRow(int row){
