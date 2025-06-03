@@ -11,7 +11,9 @@ void setup(){
 
 void draw(){
   background(255);
-  
+  board.update();
+  board.draw();
+  /*
   // screen for tetris (10 blocks wide, 20 blocks high)
   stroke(5);
   // color of screen, etc.
@@ -72,10 +74,9 @@ void draw(){
       currBlock.update();
       currBlock.display();
     }
-      */
     //System.out.println(currBlock.getSpeed());
   }
-  board.getBlockArray(0).display();
+  board.getBlockArray(0).display(); */
 }
   
 public void keyPressed() {

@@ -169,7 +169,7 @@ public class Game{
            }
          }
        }
-       for(in col = 0; col < 10; col++){
+       for(int col = 0; col < 10; col++){
           screen[0][col] = null; 
        }
        r++;
