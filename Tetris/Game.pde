@@ -3,7 +3,7 @@ public class Game{
   private int level;
   private int score;
   private int speedDelay;
-  private int lastDrop;
+  /*private*/int lastDrop;
   // all blocks on the screen
   //private ArrayList<Tetromino> blocks;
   // a 2D array of Blocks that keeps every block's position
@@ -82,6 +82,34 @@ public class Game{
     return newBlock;
   }
   */
+    public void draw(){
+   for(int i = 0; i < 20; i++){
+     for(int j = 0; j < 10; j++){
+      if(screen[i][j] !=null){
+        fill(128,128,128);
+        rect(30 +j * 30, 30 + i * 30, 30, 30);
+        stroke(0);
+        noFill();
+        rect(30 +j * 30, 30 + i * 30, 30, 30);
+        noStroke();
+      }
+     }
+   }
+    if(currentBlock != null){
+      currentBlock.display();
+    }
+    noFill();
+    stroke(0);
+    rect(30,30,300,600);
+    noStroke();
+    fill(0);
+    textSize(25);
+    String levelStr = "LEVEL:     " + level;
+    text(levelStr, 380, 271);
+    String scoreStr = "SCORE:    " + score;
+    text(scoreStr, 380, 315);
+  }
+
   public void blockSetup(){
     Block[] bI = new Block[4];
     for (int i = 0; i < 4; i++) {
@@ -184,6 +212,23 @@ public class Game{
     }
     return false;
   }
+  
+    public void update() {
+    int currentMilli = millis();
+    if (currentMilli - lastDrop > speedDelay) {
+      if(!currentBlock.move(0,1)) {
+        currentBlock.atBottom(screen);
+        clearRow();
+        spawnTetromino();
+        if(gameOver()){
+         endGame();
+         noLoop();
+        }
+      }
+      lastDrop = currentMilli;
+    }
+  }
+
     
   public void endGame(){
     background(0);

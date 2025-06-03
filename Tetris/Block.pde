@@ -60,35 +60,7 @@ public class Block {
   public boolean inBounds(int x, int y) {
     return x < 330 && x >= 30 && y >= 30 && y < 630;
   }
-  
-  public void draw(){
-   for(int i = 0; i < 20; i++){
-     for(int j = 0; j < 10; j++){
-      if(screen[i][j] !=null){
-        fill(128,128,128);
-        rect(30 +j * 30, 30 + i * 30, 30, 30);
-        stroke(0);
-        noFill();
-        rect(30 +j * 30, 30 + i * 30, 30, 30);
-        noStroke();
-      }
-     }
-   }
-    if(currentBlock != null){
-      current.display();
-    }
-    noFill();
-    stroke(0);
-    rect(30,30,300,600);
-    noStroke();
-    fill(0);
-    textSize(25);
-    String levelStr = "LEVEL:     " + level();
-    text(levelStr, 380, 271);
-    String scoreStr = "SCORE:    " + score();
-    text(scoreStr, 380, 315);
-  }
-  
+    
   public int getX() {
     return x;
   }

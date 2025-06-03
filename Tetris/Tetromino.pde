@@ -19,10 +19,11 @@ public class Tetromino {
        this.xy[r][1] = blocks[0].getY();
     }
   }
-  
+  */
+  /*
   public void update() {
     int currentMilli = millis();
-    if (currentMilli - this.millisec >= speedDelay) {
+    if (currentMilli - lastDrop > speedDelay) {
       for (int f = 0; f < blocks.length; f++) {
         if (blocks[f].inBounds(blocks[f].getX(), blocks[f].getY())) {
            blocks[f].setY(blocks[f].getY() + blocks[f].getHeight());
