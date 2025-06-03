@@ -7,8 +7,8 @@ public class Game{
   // all blocks on the screen
   //private ArrayList<Tetromino> blocks;
   // a 2D array of Blocks that keeps every block's position
-  private Block[][] screen;
-  
+  //private Block[][] screen;
+  Block[][]screen;
   // all types of 4-Block combinations
   private ArrayList<Tetromino> blockType;
   // blockType index for looping
@@ -53,7 +53,9 @@ public class Game{
    return blocks.get(i); 
   }
 */
- 
+ public Block[][] getScreen(){
+    return screen; 
+ }
   public Tetromino getCurr(){
    return currentBlock;
   }
@@ -216,7 +218,7 @@ public class Game{
     public void update() {
     int currentMilli = millis();
     if (currentMilli - lastDrop > speedDelay) {
-      if(!currentBlock.move(0,1)) {
+      if(!currentBlock.move(0,1,screen)) {
         currentBlock.atBottom(screen);
         clearRow();
         spawnTetromino();

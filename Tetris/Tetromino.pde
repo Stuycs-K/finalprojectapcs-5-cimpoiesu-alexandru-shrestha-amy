@@ -51,6 +51,18 @@ public class Tetromino {
     this.speedDelay = num;
   }
   
+  public boolean move(int x, int y, Block[][]grid){
+    for(Block block:blocks){
+      int Xcor = block.x + x * block.getSize();
+      int Ycor = block.y + y * block.getSize();
+      if(!block.inBounds(Xcor,Ycor) || Game.getScreen()[(Xcor - 30) / block.getSize()][(Ycor - 30) / block.getSize()]!=null)
+    {
+       return false; 
+    }
+   }
+   
+  }
+  
   public int accelerate(int num) {
     int times = 0;
     for (int f = 0; f < blocks.length; f++) {
