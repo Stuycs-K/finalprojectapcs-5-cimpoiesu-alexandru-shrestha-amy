@@ -8,7 +8,7 @@ public class Game{
   private Block[][] screen;
   
   // all types of 4-Block combinations
-  private ArrayList<Tetromino> tetrominos;
+  private ArrayList<Tetromino> blockType;
   // blockType index for looping
   private int index;
   // current Tetrimino
@@ -80,30 +80,34 @@ public class Game{
   }
   
   public void blockSetup(){
-    Block[] bI = new Tetromino(new Block[4]);
-    for (int i = 0; i < bI.getBlocks().length; i++) {
-      bI.getBlocks()[i] = new Block(i*30+120,30);
+    Block[] bI = new Block[4];
+    for (int i = 0; i < 4; i++) {
+      bI[i] = new Block(i*30+120,30);
     }
-    blockType.add(bI);
+    //blockType.add(new Tetromino(bI));
     
     Block[] bJ = new Block[4];
     bJ[0] = new Block(30 * 3 + 30, 30);
     bJ[1] = new Block(30 * 3 + 30, 60);
     bJ[2] = new Block(30 * 4 + 30, 60);
     bJ[3] = new Block(30 * 5 + 30, 60);
-    blockType.add(bJ);
+    //blockType.add(new Tetromino(bJ));
     
-    Tetromino bL = new Block[4];
+    Block[] bL = new Block[4];
+    bL[0] = new Block(30 * 5 +30, 30);
+    bL[1] = new Block(30 * 3 + 30, 60);
+    bL[2] = new Block(30 * 4 + 30, 60);
+    bL[3] = new Block(30 * 5 + 30, 60);
+    //blockType.add(new Tetromino(bL));
+
+
+    Block[] bO = new Block[4];
     
+    Block[] bS = new Block[4];
     
-    Tetromino bO = new Block[4];
+    Block[] bT = new Block[4];
     
-    Tetromino bS = new Block[4];
-    
-    Tetromino bT = new Block[4];
-    
-    Tetromino bZ = new Block[4];
-    */
+    Block[] bZ = new Block[4];
   }
 
   public boolean clearRow(int row){
