@@ -75,13 +75,16 @@ public class Tetromino {
   */
   
   public boolean inBounds() {
-    for (int f = 0; f < blocks.length; f++) {
-      if ((blocks[f].getY() + blocks[f].getHeight()) >= 630) {
-        return true;
-      }
+    for (int r = 0; r < blocks.length; r++) {
+        if (blocks[r]!= null) {
+          if (!blocks[r].inBounds(blocks[r].getX(), blocks[r].getY())) {
+            return false;
+          }
+        }
     }
-    return false;
+    return true;
   }
+  
   private boolean atBottom;
   public void atBottom(Block[][] game) {
     //boolean allInBound = true;
