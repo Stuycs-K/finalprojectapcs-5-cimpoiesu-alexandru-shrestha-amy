@@ -74,7 +74,7 @@ public class Tetromino {
   }
   */
   
-  public boolean needNextBlock() {
+  public boolean inBounds() {
     for (int f = 0; f < blocks.length; f++) {
       if ((blocks[f].getY() + blocks[f].getHeight()) >= 630) {
         return true;
@@ -82,17 +82,17 @@ public class Tetromino {
     }
     return false;
   }
-  
-  public boolean inBounds(Block[][] game) {
+  private boolean atBottom;
+  public void atBottom(Block[][] game) {
     //boolean allInBound = true;
-    for (int f = 0; f < 4; f++) {
-      int row = (blocks.getY() - 30) / blocks.bSize;
-      
-      if (!(getBlocks()[f].inBounds(getBlocks()[f].getX(), getBlocks()[f].getY()))) {
-        allInBound = false;
+    for (Block block : blocks) {
+      int row = (block.getY() - 30) / block.getSize();
+      int col = (block.getX() - 30) / block.getSize();
+      if (row >= 0 && row < 20 && col >= 0 && col < 10) {
+        game[row][col] = block;
+        atBottom = true;
       }
     }
-    return allInBound;
   }
 }
   
