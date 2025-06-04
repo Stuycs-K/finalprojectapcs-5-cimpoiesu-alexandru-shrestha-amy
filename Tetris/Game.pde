@@ -101,6 +101,7 @@ public class Game{
     if(currentBlock != null){
       currentBlock.display();
     }
+    
     stroke(5);
     // color of screen, etc.
     fill(64,20); // 2nd value opacity
@@ -156,7 +157,7 @@ public class Game{
     bS[0] = new Block(30 * 5 + 30, 30);
     bS[1] = new Block(30 * 6 + 30, 30);
     bS[2] = new Block(30* 4 + 30, 60);
-    bS[3] = new Block(30 * 5 + 30, 60);   
+    bS[3] = new Block(30 * 5 + 30, 60);
     blockType.add(new Tetromino(bS));
     
     Block[] bT = new Block[4];
@@ -182,6 +183,7 @@ public class Game{
        blocks[i] = new Block(block.getBlocks()[i].getX(), block.getBlocks()[i].getY());
     }
     currentBlock = new Tetromino(blocks);
+    
     
     int index2 = (int) random(blockType.size());
     Tetromino block2 = blockType.get(index2);
@@ -222,7 +224,7 @@ public class Game{
          for(int j = 0; j < 10; j++){
            screen[i][j] = screen[i-1][j];
            if(screen[i][j] != null){
-             score++;
+               score++;
               screen[i][j].y += 30; // add a set y 
            }
          }
