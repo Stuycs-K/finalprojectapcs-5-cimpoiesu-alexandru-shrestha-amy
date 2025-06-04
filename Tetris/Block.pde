@@ -58,6 +58,10 @@ public class Block {
     noStroke();
   }
   
+  public color getColor() {
+    return c;
+  }
+  
   // returns true if in bounds of tetris block screen
   public boolean inBounds(int x, int y) {
     return x < 330 && x >= 30 && y >= 30 && y < 630;

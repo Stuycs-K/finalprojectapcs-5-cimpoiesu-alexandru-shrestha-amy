@@ -131,14 +131,13 @@ public class Game{
       bI[i] = new Block(i*30+120,30, color(52, 235, 229));
     }
     blockType.add(new Tetromino(bI));
-    /*
     Block[] bJ = new Block[4];
-    bJ[0] = new Block(30 * 3 + 30, 30);
-    bJ[1] = new Block(30 * 3 + 30, 60);
-    bJ[2] = new Block(30 * 4 + 30, 60);
-    bJ[3] = new Block(30 * 5 + 30, 60);
+    bJ[0] = new Block(30 * 3 + 30, 30, color(24, 51, 222));
+    bJ[1] = new Block(30 * 3 + 30, 60, color(24, 51, 222));
+    bJ[2] = new Block(30 * 4 + 30, 60, color(24, 51, 222));
+    bJ[3] = new Block(30 * 5 + 30, 60, color(24, 51, 222));
     blockType.add(new Tetromino(bJ));
-    
+    /*
     Block[] bL = new Block[4];
     bL[0] = new Block(30 * 5 +30, 30);
     bL[1] = new Block(30 * 3 + 30, 60);
@@ -199,7 +198,7 @@ public class Game{
     Block[] blocks2 = nextBlock.getBlocks();
     Block[] shownBlocks = new Block[4];
     for(int i = 0; i < 4; i++) {
-       shownBlocks[i] = new Block(blocks2[i].getX()+280,blocks2[i].getY() + 50);
+       shownBlocks[i] = new Block(blocks2[i].getX()+280,blocks2[i].getY() + 50,color(52, 235, 229));
     }
     Tetromino shownBlock = new Tetromino(shownBlocks);
     shownBlock.display();
