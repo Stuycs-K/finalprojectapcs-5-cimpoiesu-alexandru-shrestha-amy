@@ -89,7 +89,7 @@ public class Game{
    for(int i = 0; i < 20; i++){
      for(int j = 0; j < 10; j++){
       if(screen[i][j] !=null){
-        fill(128,128,128);
+        fill(screen[i][j].getColor());
         rect(30 +j * 30, 30 + i * 30, 30, 30);
         stroke(0);
         noFill();
@@ -138,7 +138,7 @@ public class Game{
     bJ[3] = new Block(30 * 5 + 30, 60, color(24, 51, 222));
     blockType.add(new Tetromino(bJ));
     
-    color L = color(222, 136, 24);
+    color L = color(255, 204, 0);
     Block[] bL = new Block[4];
     bL[0] = new Block(30 * 5 +30, 30, L);
     bL[1] = new Block(30 * 3 + 30, 60, L);
