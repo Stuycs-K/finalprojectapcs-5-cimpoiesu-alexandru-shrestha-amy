@@ -102,15 +102,11 @@ public class Game{
       }
      }
    }
-    if(currentBlock != null){
-      currentBlock.display();
-    }
-    
-    stroke(5);
+   stroke(5);
     // color of screen, etc.
     fill(64,20); // 2nd value opacity
     rect(30,30,300,600);
-  
+    
     // screen for nextBlock
     rect(360, 30, width-30-360, 180);
   
@@ -118,6 +114,10 @@ public class Game{
     rect(360, 240, width-30-360, 135);
     line(360, 285, 550, 285);
     line(360, 330, 550, 330);
+   
+    if(currentBlock != null){
+      currentBlock.display();
+    }
     
     displayNext();
   
@@ -135,17 +135,19 @@ public class Game{
   public void blockSetup(){
     Block[] bI = new Block[4];
     for (int i = 0; i < 4; i++) {
-      bI[i] = new Block(i*30+120,30, color(52, 235, 229));
+      bI[i] = new Block(i*30+120,30, color(18, 210, 227));
     }
     blockType.add(new Tetromino(bI));
+    
+    color J = color(245, 113, 184);
     Block[] bJ = new Block[4];
-    bJ[0] = new Block(30 * 3 + 30, 30, color(24, 51, 222));
-    bJ[1] = new Block(30 * 3 + 30, 60, color(24, 51, 222));
-    bJ[2] = new Block(30 * 4 + 30, 60, color(24, 51, 222));
-    bJ[3] = new Block(30 * 5 + 30, 60, color(24, 51, 222));
+    bJ[0] = new Block(30 * 3 + 30, 30, J);
+    bJ[1] = new Block(30 * 3 + 30, 60, J);
+    bJ[2] = new Block(30 * 4 + 30, 60, J);
+    bJ[3] = new Block(30 * 5 + 30, 60, J);
     blockType.add(new Tetromino(bJ));
     
-    color L = color(255, 204, 0);
+    color L = color(255, 165, 0);
     Block[] bL = new Block[4];
     bL[0] = new Block(30 * 5 +30, 30, L);
     bL[1] = new Block(30 * 3 + 30, 60, L);
@@ -153,7 +155,7 @@ public class Game{
     bL[3] = new Block(30 * 5 + 30, 60, L);
     blockType.add(new Tetromino(bL));
 
-    color O = color(239, 245, 66);
+    color O = color(255, 255, 0);
     Block[] bO = new Block[4];
     bO[0] = new Block(30 * 4+30, 30, O);
     bO[1] = new Block(30*5+30,30, O);
@@ -161,7 +163,7 @@ public class Game{
     bO[3] = new Block(30 * 5 + 30, 60, O);
     blockType.add(new Tetromino(bO));
     
-    color S = color(84, 245, 66);
+    color S = color(222, 33, 33);
     Block[] bS = new Block[4];
     bS[0] = new Block(30 * 5 + 30, 30, S);
     bS[1] = new Block(30 * 6 + 30, 30, S);
@@ -169,7 +171,7 @@ public class Game{
     bS[3] = new Block(30 * 5 + 30, 60, S);
     blockType.add(new Tetromino(bS));
     
-    color T = color(245, 66, 242);
+    color T = color(139,0,139);
     Block[] bT = new Block[4];
     bT[0] = new Block(30 * 4+30, 30, T);
     bT[1] = new Block(30*3+30,60, T);
@@ -177,7 +179,7 @@ public class Game{
     bT[3] = new Block(30 * 5 + 30, 60, T); 
     blockType.add(new Tetromino(bT));
     
-    color Z = color(245, 66, 66);
+    color Z = color(137, 181, 89);
     Block[] bZ = new Block[4];
     bZ[0] = new Block (30 * 4 + 30, 30, Z);
     bZ[1] = new Block(30 * 5 + 30,30, Z);
