@@ -1,88 +1,45 @@
 public class Tetromino {
-  private Block[][] blocks;
+  private Block[] blocks;
   private int millisec, speedDelay;
   private boolean canMove;
   private int[][] xy;
   
-  public Tetromino(Block[][] blocks) {
+  public Tetromino(Block[] blocks) {
     this.blocks = blocks;
-    this.millisec = millis();
-    this.speedDelay = 550;
-    this.canMove = true;
-    this.xy = new int[4][2];
-    setupCoor();
+    //this.millisec = millis();
+    //this.speedDelay = 550;
+    //this.canMove = true;
+    //this.xy = new int[4][2];
+    //setupCoor();
   }
-  
+  /*
   public void setupCoor() {
-    // [top left, top right, bottom left, bottom right]
-    int topLX = Integer.MAX_VALUE, topLY = Integer.MAX_VALUE, topRX = Integer.MIN_VALUE, topRY = Integer.MIN_VALUE;
-    int bottomLX = Integer.MAX_VALUE, bottomLY = Integer.MAX_VALUE, bottomRX = Integer.MIN_VALUE, bottomRY = Integer.MIN_VALUE;
-    
-    for (int r = 0; r < blocks.length; r++) {
-      for (int c = 0; c < blocks[0].length; c++) {
-        Block b = blocks[r][c];
-        if (b != null) {
-          int x = b.getX();
-          int y = b.getY();
-          
-          if (x < topLX && y < topLY) {
-          topLX = x;
-          topLY = y;
-        }
-        if (x < topRX && y < topRY) {
-          topRX = x;
-          topRY = y;
-        }
-        if (x < bottomLX && y > bottomLY) {
-          bottomLX = x;
-          bottomLY = y;
-        }
-        if (x > bottomRX && y > bottomRY) {
-          bottomRX = x;
-          bottomRY = y;
-        }
-        }
-      }
+    for (int r = 0; r < 4; r++) {
+       this.xy[r][0] = blocks[0].getX();
+       this.xy[r][1] = blocks[0].getY();
     }
-          
-    this.xy[0][0] = topLX;
-    this.xy[0][1] = topLY;
-    
-    this.xy[1][0] = topRX;
-    this.xy[1][1] = topRY;
-    
-    this.xy[2][0] = bottomLX;
-    this.xy[2][1] = bottomLY;
-    
-    this.xy[3][0] = bottomRX;
-    this.xy[3][1] = bottomRY;
   }
-  
+  */
+  /*
   public void update() {
     int currentMilli = millis();
-    if (currentMilli - this.millisec >= speedDelay) {
-      for (int r = 0; r < blocks.length; r++) {
-        for (int c = 0; c <  blocks[0].length; c++) {
-          if (blocks[r][c] != null && blocks[r][c].inBounds(blocks[r][c].getX(), blocks[r][c].getY())) {
-             blocks[r][c].setY(blocks[r][c].getY() + blocks[r][c].getHeight());
-          }
+    if (currentMilli - lastDrop > speedDelay) {
+      for (int f = 0; f < blocks.length; f++) {
+        if (blocks[f].inBounds(blocks[f].getX(), blocks[f].getY())) {
+           blocks[f].setY(blocks[f].getY() + blocks[f].getHeight());
         }
       }
       this.millisec = currentMilli;
     }
   }
-  
+  */
   public void display() {
-    for (int r = 0; r < blocks.length; r++) {
-      for (int c = 0; c <  blocks[0].length; c++) {
-        if (blocks[r][c] != null) {
-        blocks[r][c].display();
-        }
-      }
+    for (int f = 0; f < blocks.length; f++) {
+      blocks[f].display();
     }
   }
   
-  public Block[][] getBlocks() {
+  public Block[] getBlocks() {
     return blocks;
   }
   
@@ -92,6 +49,22 @@ public class Tetromino {
   
   public void setSpeed(int num) {
     this.speedDelay = num;
+  }
+  
+  public boolean move(int x, int y, Block[][]grid){
+    for(Block block:blocks){
+      int Xcor = block.x + x * block.getSize();
+      int Ycor = block.y + y * block.getSize();
+      if(!block.inBounds(Xcor,Ycor) || grid[(Ycor -30) / block.getSize()][(Xcor-30) / block.getSize()]!=null)
+    {
+       return false; 
+    }
+   }
+   for(Block block:blocks){
+    block.x += x * block.getSize();
+    block.y += y * block.getSize();
+   }
+   return true;
   }
   
   public int accelerate(int num) {
@@ -106,6 +79,7 @@ public class Tetromino {
     return times;
   }
  
+ /*
   public void setMove(boolean val){
      for (int g = 0; g < 4; g++) {
        this.canMove = val;
@@ -115,64 +89,30 @@ public class Tetromino {
   public boolean getMove(){
      return canMove;
   }
-  
-  public boolean needNextBlock() {
-    for (int r = 0; r < blocks.length; r++) {
-      for (int c = 0; c <  blocks[0].length; c++) {
-        if (blocks[r][c] != null && (blocks[r][c].getY() + blocks[r][c].getHeight()) >= 630) {
-          return true;
-        }
-      }
-    }
-    return false;
-  }
-  
-  public boolean canMove(int posx, int posy) {
-    for (int r = 0; r < blocks.length; r++) {
-      for (int c = 0; c <  blocks[0].length; c++) {
-        if (blocks[r][c] != null) {
-          if (!blocks[r][c].inBounds(blocks[r][c].getX() + blocks[r][c].getWidth()*posx, blocks[r][c].getY())) {
-            return false;
-          }
-        }
-      }
-    }
-    return true;
-  }
+  */
   
   public boolean inBounds() {
     for (int r = 0; r < blocks.length; r++) {
-      for (int c = 0; c <  blocks[0].length; c++) {
-        if (blocks[r][c] != null) {
-          if (!blocks[r][c].inBounds(blocks[r][c].getX(), blocks[r][c].getY())) {
+        if (blocks[r]!= null) {
+          if (!blocks[r].inBounds(blocks[r].getX(), blocks[r].getY())) {
             return false;
           }
         }
-      }
     }
     return true;
   }
   
-  public void move(int posx, int posy) {
-    for (int r = 0; r < blocks.length; r++) {
-      for (int c = 0; c <  blocks[0].length; c++) {
-        if (blocks[r][c] != null) {
-          int bWidth = blocks[r][c].getWidth();
-    // right
-    if (posx > 0 && posy == 0 && blocks[r][c].inBounds(blocks[r][c].getX()+bWidth, blocks[r][c].getY())) {
-      blocks[r][c].setX(blocks[r][c].getX()+bWidth);
-    }
-    // left
-    else if (posx < 0 && posy == 0 && blocks[r][c].inBounds(blocks[r][c].getX()-bWidth, blocks[r][c].getY())) {
-      blocks[r][c].setX(blocks[r][c].getX()-bWidth);
-    }
-    else if (blocks[r][c].getY() + posy > 630){
-       this.speedDelay = 630 - blocks[r][c].getHeight();
-    }
-        }
+  private boolean atBottom;
+  public void atBottom(Block[][] game) {
+    //boolean allInBound = true;
+    for (Block block : blocks) {
+      int row = (block.getY() - 30) / block.getSize();
+      int col = (block.getX() - 30) / block.getSize();
+      if (row >= 0 && row < 20 && col >= 0 && col < 10) {
+        game[row][col] = block;
+        atBottom = true;
       }
     }
-    setupCoor();
   }
 }
   
