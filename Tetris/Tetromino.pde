@@ -1,11 +1,13 @@
 public class Tetromino {
   private Block[] blocks;
   private int millisec, speedDelay;
+  color c;
   //private boolean canMove;
   //private int[][] xy;
   
   public Tetromino(Block[] blocks) {
     this.blocks = blocks;
+    this.c = c;
     //this.millisec = millis();
     //this.speedDelay = 550;
     //this.canMove = true;
@@ -13,7 +15,7 @@ public class Tetromino {
     //setupCoor();
   }
   /*
-  public void setupCoor() {
+  public void setupCord() {
     for (int r = 0; r < 4; r++) {
        this.xy[r][0] = blocks[0].getX();
        this.xy[r][1] = blocks[0].getY();
