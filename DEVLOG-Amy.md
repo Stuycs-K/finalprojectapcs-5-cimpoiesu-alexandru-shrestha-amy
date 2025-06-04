@@ -34,5 +34,8 @@ Fixed accelerate error with a Tetromino (4 Block) and modified all code to a Blo
 ### 2025-06-02 - NextBlock and Boundaries
 Fixing boundaries, needNextBlock(), and acceleration on a 2D block array of Tetrominos. Spent approx. 3 hours 50 minutes.
 
+### 2025-06-03 - Visual Fixes & Next Block
+Fixing bugs and visual interface (game screen, end screen). Modified code so nextBlock displays in correct position. Level will increase for every 10 rows, speeding up the block each time. Spend approx. 60 minutes.
 
-
+### 2025-06-03 - Lines Cleared
+Added lines cleared (rowsCleared) on visual interface, fixed score increase and block randomization for first block. Spend approx. 40 minutes.
