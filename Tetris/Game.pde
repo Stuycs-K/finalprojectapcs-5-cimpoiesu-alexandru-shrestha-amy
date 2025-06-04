@@ -6,13 +6,17 @@ public class Game{
   /*private*/int lastDrop;
   // all blocks on the screen
   //private ArrayList<Tetromino> blocks;
+  
   // a 2D array of Blocks that keeps every block's position
   //private Block[][] screen;
   public Block[][] screen;
+  
   // all types of 4-Block combinations
   private ArrayList<Tetromino> blockType;
+  
   // blockType index for looping
   //private int index;
+  
   // current Tetrimino
   private Tetromino currentBlock;
   private int rowsCleared;
@@ -30,7 +34,7 @@ public class Game{
     //blocks.add(blockType.get(0));
     this.screen = new Block[20][10];
     blockSetup();
-    this.currentBlock = blockType.get(0);
+    this.currentBlock = blockType.get((int) random(blockType.size()));
     this.rowsCleared = 0;
     this.nextBlock = blockType.get((int) random(blockType.size()));
   }
@@ -201,7 +205,7 @@ public class Game{
     Block[] blocks2 = nextBlock.getBlocks();
     Block[] shownBlocks = new Block[4];
     for(int i = 0; i < 4; i++) {
-       shownBlocks[i] = new Block(blocks2[i].getX()+280,blocks2[i].getY() + 50);
+       shownBlocks[i] = new Block(blocks2[i].getX() + 280,blocks2[i].getY() + 50);
     }
     Tetromino shownBlock = new Tetromino(shownBlocks);
     shownBlock.display();
