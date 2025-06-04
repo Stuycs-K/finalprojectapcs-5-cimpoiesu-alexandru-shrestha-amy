@@ -1,5 +1,6 @@
 public class Block {
   private int x, y;
+  private color c;
   //private int angle;
   //private int bWidth, bHeight; //we don't need both of these each block is a square
   private int bSize; // only 1 dimension needed
@@ -18,11 +19,12 @@ public class Block {
     //this.canMove = true;
   }
   
-  public Block(int x, int y){
+  public Block(int x, int y, color c){
     //this.angle = 0;
     this.x = x;
     this.y = y;
     this.bSize = 30;
+    this.c = c;
     //this.bWidth = 30;
     //this.bHeight = 30;
     //this.millisec = millis();
@@ -48,7 +50,7 @@ public class Block {
   */
   public void display() {
     // color of rect
-    fill(128,100);
+    fill(c);
     rect(x,y,bSize,bSize);
     stroke(0);
     noFill();
