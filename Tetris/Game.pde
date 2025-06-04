@@ -111,8 +111,9 @@ public class Game{
     rect(360, 30, width-30-360, 180);
   
     // screen for text
-    rect(360, 240, width-30-360, 90);
+    rect(360, 240, width-30-360, 135);
     line(360, 285, 550, 285);
+    line(360, 330, 550, 330);
     
     displayNext();
   
@@ -123,6 +124,8 @@ public class Game{
     text(levelStr, 380, 271);
     String scoreStr = "SCORE:    " + board.getScore();
     text(scoreStr, 380, 315);
+    String linesStr = "LINES:      " + rowsCleared;
+    text(linesStr, 380, 359);
   }
 
   public void blockSetup(){
@@ -220,11 +223,11 @@ public class Game{
       }
     if(full){
        score += 100 * level;
+       rowsCleared++;
        for(int i = r; i > 0; i--){
          for(int j = 0; j < 10; j++){
            screen[i][j] = screen[i-1][j];
            if(screen[i][j] != null){
-               score++;
               screen[i][j].y += 30; // add a set y 
            }
          }

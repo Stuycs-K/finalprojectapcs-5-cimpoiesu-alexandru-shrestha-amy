@@ -123,9 +123,9 @@ public void keyReleased(){
      }
   }
 }
-
+*/
 // placeholder, used to get position of text
 public void mousePressed() {
   System.out.println(mouseX + "," + mouseY);
   //board.endGame();
-}*/
+}
