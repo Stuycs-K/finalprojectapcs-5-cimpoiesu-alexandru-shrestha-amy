@@ -1,6 +1,6 @@
 import java.util.*;
 private Game board = new Game();
-private int timesdown = 0;
+//private int timesdown = 0;
 
 void setup(){
   size(580,660);
@@ -123,10 +123,9 @@ public void keyReleased(){
      }
   }
 }
-
+*/
 // placeholder, used to get position of text
 public void mousePressed() {
   System.out.println(mouseX + "," + mouseY);
   //board.endGame();
 }
-*/

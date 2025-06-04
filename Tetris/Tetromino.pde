@@ -1,8 +1,8 @@
 public class Tetromino {
   private Block[] blocks;
   private int millisec, speedDelay;
-  private boolean canMove;
-  private int[][] xy;
+  //private boolean canMove;
+  //private int[][] xy;
   
   public Tetromino(Block[] blocks) {
     this.blocks = blocks;

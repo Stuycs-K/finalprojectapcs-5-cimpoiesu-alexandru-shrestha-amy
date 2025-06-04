@@ -16,6 +16,7 @@ public class Game{
   // current Tetrimino
   private Tetromino currentBlock;
   private int rowsCleared;
+  private Tetromino nextBlock;
   
   public Game(){
     this.level = 1;
@@ -23,7 +24,7 @@ public class Game{
     speedDelay = 550;
     this.blockType = new ArrayList<Tetromino>();
     //this.index = 0;
-    //blockSetup(); // ERROR
+    
     lastDrop = 0;
     //this.blocks = new ArrayList<Tetromino>();
     //blocks.add(blockType.get(0));
@@ -31,6 +32,7 @@ public class Game{
     blockSetup();
     this.currentBlock = blockType.get(0);
     this.rowsCleared = 0;
+    this.nextBlock = blockType.get((int) random(blockType.size()));
   }
 
   public int getLevel(){
@@ -99,24 +101,27 @@ public class Game{
     if(currentBlock != null){
       currentBlock.display();
     }
-      // color of screen, etc.
-  fill(64,20); // 2nd value opacity
-  rect(30,30,300,600);
+    stroke(5);
+    // color of screen, etc.
+    fill(64,20); // 2nd value opacity
+    rect(30,30,300,600);
   
-  // screen for nextBlock
-  rect(360, 30, width-30-360, 180);
+    // screen for nextBlock
+    rect(360, 30, width-30-360, 180);
   
-  // screen for text
-  rect(360, 240, width-30-360, 90);
-  line(360, 285, 550, 285);
+    // screen for text
+    rect(360, 240, width-30-360, 90);
+    line(360, 285, 550, 285);
+    
+    displayNext();
   
-  // text for score + level
-  fill(0);
-  textSize(25);
-  String levelStr = "LEVEL:     " + board.getLevel();
-  text(levelStr, 380, 271);
-  String scoreStr = "SCORE:    " + board.getScore();
-  text(scoreStr, 380, 315);
+    // text for score + level
+    fill(0);
+    textSize(25);
+    String levelStr = "LEVEL:     " + board.getLevel();
+    text(levelStr, 380, 271);
+    String scoreStr = "SCORE:    " + board.getScore();
+    text(scoreStr, 380, 315);
   }
 
   public void blockSetup(){
@@ -152,7 +157,7 @@ public class Game{
     bS[1] = new Block(30 * 6 + 30, 30);
     bS[2] = new Block(30* 4 + 30, 60);
     bS[3] = new Block(30 * 5 + 30, 60);   
-    blockType.add(new Tetromino(bO));
+    blockType.add(new Tetromino(bS));
     
     Block[] bT = new Block[4];
     bT[0] = new Block(30 * 4+30, 30);
@@ -170,15 +175,32 @@ public class Game{
   }
   
   public void spawnTetromino(){
-    int index = (int) random(blockType.size());
-    Tetromino block = blockType.get(index);
+    //int index = (int) random(blockType.size());
+    Tetromino block = nextBlock;
     Block[] blocks = new Block[4];
     for(int i = 0; i < 4; i++) {
        blocks[i] = new Block(block.getBlocks()[i].getX(), block.getBlocks()[i].getY());
     }
     currentBlock = new Tetromino(blocks);
+    
+    int index2 = (int) random(blockType.size());
+    Tetromino block2 = blockType.get(index2);
+    Block[] blocks2 = new Block[4];
+    for(int i = 0; i < 4; i++) {
+       blocks2[i] = new Block(block2.getBlocks()[i].getX(), block2.getBlocks()[i].getY());
+    }
+    nextBlock = new Tetromino(blocks2);
   }
   
+  public void displayNext() {
+    Block[] blocks2 = nextBlock.getBlocks();
+    Block[] shownBlocks = new Block[4];
+    for(int i = 0; i < 4; i++) {
+       shownBlocks[i] = new Block(blocks2[i].getX()+280,blocks2[i].getY() + 50);
+    }
+    Tetromino shownBlock = new Tetromino(shownBlocks);
+    shownBlock.display();
+  }
   
   public void clearRow(){
     //if (rowsCleared == 10) {
