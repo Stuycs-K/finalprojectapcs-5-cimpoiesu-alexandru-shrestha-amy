@@ -212,8 +212,6 @@ public class Game{
       boolean full = true;
       for (int c = 0; c < 10; c++) {
         if (screen[r][c]==null) {
-          // if you can clear the row
-          // clear the row and move everything down
           full = false;
           return;
         }
@@ -224,6 +222,7 @@ public class Game{
          for(int j = 0; j < 10; j++){
            screen[i][j] = screen[i-1][j];
            if(screen[i][j] != null){
+             score++;
               screen[i][j].y += 30; // add a set y 
            }
          }
@@ -235,6 +234,13 @@ public class Game{
     }
   }
  }
+ 
+ public void speedUp(){
+   if (score != 0 && score % 10 == 0 && speedDelay > 50) {
+     speedDelay -= 5;
+   }
+ }
+ 
   private boolean gameOver() {
     for (int i = 0; i < 10; i++) {
       if (screen[0][i] != null) {
@@ -262,9 +268,9 @@ public class Game{
 
     
   public void endGame(){
-    background(0);
+    background(255, 0, 0, 50);
     fill(color(0));
-    text("Game Over",125,315, 100);
+    text("Game Over",125,315,100);
     noLoop();
   }
 }
