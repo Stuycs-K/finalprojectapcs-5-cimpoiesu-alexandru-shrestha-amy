@@ -82,6 +82,7 @@ void draw(){
   
 public void keyPressed() {
   board.cheatLevel();
+  if (!board.getPause()){
   /*
       if (keyCode == UP) {
         // turn CW
@@ -110,6 +111,7 @@ public void keyPressed() {
         // move right
         board.currentBlock.move(1,0,board.screen);
         }
+  }
   }  
 /*
 
@@ -124,9 +126,12 @@ public void keyReleased(){
        }
      }
   }
-}
-// placeholder, used to get position of text
-public void mousePressed() {
-  System.out.println(mouseX + "," + mouseY);
-  //board.endGame();
 }*/
+
+public void mousePressed() {
+  if (mouseX >= 510 && mouseX <= 545 && mouseY >= 590 && mouseY <= 625) {
+    board.pause();
+  }
+  //System.out.println(mouseX + "," + mouseY);
+  //board.endGame();
+}
