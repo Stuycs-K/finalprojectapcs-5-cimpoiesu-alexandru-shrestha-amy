@@ -297,14 +297,9 @@ public class Game{
     noLoop();
   }
   
-  public void cheatEnd(){
-    if (key == '1') {
-      
-    }
-  }
-  
   public void cheatLevel(){
-    if (key == '2') {
+    // level up
+    if (key == '1') {
       level++;
       if (level >= 5) {
         speedDelay -= 25;
@@ -314,6 +309,21 @@ public class Game{
       }
       if (speedDelay <= 25) {
         speedDelay = 25;
+      }
+    }
+    // level down
+    else if (key == '2') {
+      if (level > 1) {
+        level--;
+      }
+      if (level >= 5) {
+        speedDelay += 25;
+      }
+      else {
+        speedDelay += 50;
+      }
+      if (speedDelay >= 550) {
+        speedDelay = 550;
       }
     }
   }

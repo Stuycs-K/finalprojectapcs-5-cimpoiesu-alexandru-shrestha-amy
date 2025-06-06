@@ -5,7 +5,7 @@ private Game board = new Game();
 void setup(){
   size(580,660);
   background(255);
-  println("To activate cheat: 1 (endGame), 2 (level)");
+  println("To activate cheat: 1 (level up), 2 (level down)");
   // possible start screen
   //startGame();
 }
@@ -82,7 +82,6 @@ void draw(){
   
 public void keyPressed() {
   board.cheatLevel();
-  board.cheatEnd();
   /*
       if (keyCode == UP) {
         // turn CW
