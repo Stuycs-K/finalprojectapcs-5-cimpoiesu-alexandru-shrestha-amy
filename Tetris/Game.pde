@@ -99,12 +99,17 @@ public class Game{
         noFill();
         rect(30 +j * 30, 30 + i * 30, 30, 30);
         noStroke();
+        if(gameOver()){
+         endGame();
+         noLoop();
+        }
+        winGame();
       }
      }
    }
-   stroke(5);
+    stroke(5);
     // color of screen, etc.
-    fill(64,20); // 2nd value opacity
+    fill(64,10); // 2nd value opacity
     rect(30,30,300,600);
     
     // screen for nextBlock
@@ -217,12 +222,7 @@ public class Game{
     shownBlock.display();
   }
   
-  public void clearRow(){
-    //if (rowsCleared == 10) {
-      //level++;
-      //rowsCleared = 0;
-    //}
-    
+  public void clearRow(){    
     for (int r = 19; r >= 0; r--) {
       boolean full = true;
       for (int c = 0; c < 10; c++) {
@@ -252,7 +252,15 @@ public class Game{
  
  public void speedUp(){
    if (score != 0 && score % 10 == 0 && speedDelay > 50) {
-     speedDelay -= 5;
+     if (level >= 5) {
+        speedDelay -= 25;
+      }
+      else {
+        speedDelay -= 50;
+      }
+      if (speedDelay <= 25) {
+        speedDelay = 25;
+      }
    }
  }
  
@@ -272,10 +280,6 @@ public class Game{
         currentBlock.atBottom(screen);
         clearRow();
         spawnTetromino();
-        if(gameOver()){
-         endGame();
-         noLoop();
-        }
       }
       lastDrop = currentMilli;
     }
@@ -283,9 +287,47 @@ public class Game{
 
     
   public void endGame(){
-    background(255, 0, 0, 50);
+    // background screen, with opacity
+    fill(255, 0, 0, 5);
+    rect(0,0,width,height);
+    
     fill(color(0));
+    textSize(30);
     text("Game Over",125,315,100);
     noLoop();
+  }
+  
+  public void cheatEnd(){
+    if (key == '1') {
+      
+    }
+  }
+  
+  public void cheatLevel(){
+    if (key == '2') {
+      level++;
+      if (level >= 5) {
+        speedDelay -= 25;
+      }
+      else {
+        speedDelay -= 50;
+      }
+      if (speedDelay <= 25) {
+        speedDelay = 25;
+      }
+    }
+  }
+  
+  public void winGame() {
+    if (level >= 20 && !gameOver()) {
+      // background screen, with opacity
+    fill(255, 255, 0, 5);
+    rect(0,0,width,height);
+    
+    fill(color(0));
+    textSize(30);
+    text("You Win!",125,315,100);
+    noLoop();
+    }
   }
 }
