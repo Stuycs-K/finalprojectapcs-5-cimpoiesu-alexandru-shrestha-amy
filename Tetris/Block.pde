@@ -51,6 +51,7 @@ public class Block {
   public void display() {
     // color of rect
     fill(c);
+    ambientLight(0,0,0);
     rect(x,y,bSize,bSize);
     stroke(0);
     noFill();

@@ -22,6 +22,8 @@ public class Game{
   private int rowsCleared;
   private Tetromino nextBlock;
   
+  private boolean isPaused;
+  
   public Game(){
     this.level = 1;
     this.score = 0;
@@ -37,6 +39,7 @@ public class Game{
     this.currentBlock = blockType.get((int) random(blockType.size()));
     this.rowsCleared = 0;
     this.nextBlock = blockType.get((int) random(blockType.size()));
+    this.isPaused = false;
   }
 
   public int getLevel(){
@@ -103,7 +106,7 @@ public class Game{
          endGame();
          noLoop();
         }
-        winGame();
+        //winGame();
       }
      }
    }
@@ -119,10 +122,24 @@ public class Game{
     rect(360, 240, width-30-360, 135);
     line(360, 285, 550, 285);
     line(360, 330, 550, 330);
+    
+    // pause button
+    rect(510, 590, 35, 35);
+    line(523, 600, 523, 615);
+    line(532, 600, 532, 615);
    
     if(currentBlock != null){
       currentBlock.display();
     }
+    
+    if (isPaused) {
+          fill(255, 255, 0, 5);
+          rect(0,0,width,height);
+      
+          fill(color(0));
+          textSize(30);
+          text("PAUSED",125,315,100);
+        }
     
     displayNext();
   
@@ -194,6 +211,7 @@ public class Game{
   }
   
   public void spawnTetromino(){
+    if (!isPaused) {
     //int index = (int) random(blockType.size());
     Tetromino block = nextBlock;
     Block[] blocks = new Block[4];
@@ -209,6 +227,7 @@ public class Game{
        blocks2[i] = new Block(block2.getBlocks()[i].getX(), block2.getBlocks()[i].getY(), block2.getBlocks()[i].getColor());
     }
     nextBlock = new Tetromino(blocks2);
+    }
   }
   
   public void displayNext() {
@@ -239,7 +258,8 @@ public class Game{
     }
   }
   
-  public void clearRow(){    
+  public void clearRow(){
+    if (!isPaused) {
     for (int r = 19; r >= 0; r--) {
       boolean full = true;
       for (int c = 0; c < 10; c++) {
@@ -265,9 +285,11 @@ public class Game{
        r++;
     }
   }
+    }
  }
  
  public void speedUp(){
+   if (!isPaused){
    if (score != 0 && score % 10 == 0 && speedDelay > 50) {
      if (level >= 5) {
         speedDelay -= 25;
@@ -278,6 +300,7 @@ public class Game{
       if (speedDelay <= 25) {
         speedDelay = 25;
       }
+   }
    }
  }
  
@@ -291,6 +314,7 @@ public class Game{
   }
   
     public void update() {
+      if (!isPaused) {
     int currentMilli = millis();
     if (currentMilli - lastDrop > speedDelay) {
       if(!currentBlock.move(0,1,screen)) {
@@ -300,6 +324,7 @@ public class Game{
       }
       lastDrop = currentMilli;
     }
+      }
   }
 
     
@@ -345,6 +370,7 @@ public class Game{
     }
   }
   
+  /*
   public void winGame() {
     if (level >= 20 && !gameOver()) {
       // background screen, with opacity
@@ -356,5 +382,20 @@ public class Game{
     text("You Win!",125,315,100);
     noLoop();
     }
+  }
+  */
+  
+  public void pause() {
+    if (isPaused == false) {
+      isPaused = true;
+    }
+    else { //unpause
+      isPaused = false;
+    }
+    //System.out.println(isPaused);
+  }
+  
+  public boolean getPause() {
+    return isPaused;
   }
 }
