@@ -251,7 +251,7 @@ public class Game{
       Tetromino block2 = blockType.get(index2);
       Block[] blocks3 = new Block[4];
       for(int i = 0; i < 4; i++) {
-         blocks3] = new Block(block2.getBlocks()[i].getX(), block2.getBlocks()[i].getY(), block2.getBlocks()[i].getColor());
+         blocks3[i] = new Block(block2.getBlocks()[i].getX(), block2.getBlocks()[i].getY(), block2.getBlocks()[i].getColor());
       }
       nextBlock = new Tetromino(blocks2);
       displayNext();
