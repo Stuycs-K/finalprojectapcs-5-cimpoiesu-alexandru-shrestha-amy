@@ -133,5 +133,4 @@ public void mousePressed() {
     board.pause();
   }
   //System.out.println(mouseX + "," + mouseY);
-  //board.endGame();
 }

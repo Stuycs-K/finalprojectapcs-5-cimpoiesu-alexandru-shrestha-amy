@@ -39,3 +39,7 @@ Fixing bugs and visual interface (game screen, end screen). Modified code so nex
 
 ### 2025-06-03 - Lines Cleared
 Added lines cleared (rowsCleared) on visual interface, fixed score increase and block randomization for first block. Spend approx. 40 minutes.
+
+### 2025-06-04 to 2025-06-05 - Mechanics
+Fixing score/level increases, block colors, endGame() text, added cheats for increasing/decreasing level (with appropriate increasing/decreasing speeds), set a win function.
+
