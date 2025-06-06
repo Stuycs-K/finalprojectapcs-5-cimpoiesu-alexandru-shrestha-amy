@@ -5,6 +5,7 @@ private Game board = new Game();
 void setup(){
   size(580,660);
   background(255);
+  println("To activate cheat: 1 (level up), 2 (level down)");
   // possible start screen
   //startGame();
 }
@@ -80,6 +81,7 @@ void draw(){
 }
   
 public void keyPressed() {
+  board.cheatLevel();
   /*
       if (keyCode == UP) {
         // turn CW
@@ -123,7 +125,6 @@ public void keyReleased(){
      }
   }
 }
-
 // placeholder, used to get position of text
 public void mousePressed() {
   System.out.println(mouseX + "," + mouseY);
