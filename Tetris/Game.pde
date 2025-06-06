@@ -132,6 +132,15 @@ public class Game{
       currentBlock.display();
     }
     
+    if (isPaused) {
+          fill(255, 255, 0, 5);
+          rect(0,0,width,height);
+      
+          fill(color(0));
+          textSize(30);
+          text("PAUSED",125,315,100);
+        }
+    
     displayNext();
   
     // text for score + level
@@ -361,12 +370,6 @@ public class Game{
   
   public void pause() {
     if (isPaused == false) {
-      fill(255, 255, 0, 5);
-      rect(0,0,width,height);
-      
-      fill(color(0));
-      textSize(30);
-      text("PAUSED",width/2,height/2);
       isPaused = true;
     }
     else { //unpause
