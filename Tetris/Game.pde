@@ -202,7 +202,6 @@ public class Game{
     }
     currentBlock = new Tetromino(blocks);
     
-    
     int index2 = (int) random(blockType.size());
     Tetromino block2 = blockType.get(index2);
     Block[] blocks2 = new Block[4];
@@ -219,7 +218,25 @@ public class Game{
        shownBlocks[i] = new Block(blocks2[i].getX()+280,blocks2[i].getY() + 50,blocks2[i].getColor());
     }
     Tetromino shownBlock = new Tetromino(shownBlocks);
-    shownBlock.display();
+    boolean bool = true;
+    for(int i = 0; i < 4; i++){
+       if (!(shownBlocks[i].x >= 359 && shownBlocks[i].x <= 549 && shownBlocks[i].y >= 29 && shownBlocks[i].y <= 208)){
+         bool = false;
+       }
+    }
+    if(bool){
+      shownBlock.display();
+    }
+    else{
+      int index2 = (int) random(blockType.size());
+      Tetromino block2 = blockType.get(index2);
+      Block[] blocks3 = new Block[4];
+      for(int i = 0; i < 4; i++) {
+         blocks3] = new Block(block2.getBlocks()[i].getX(), block2.getBlocks()[i].getY(), block2.getBlocks()[i].getColor());
+      }
+      nextBlock = new Tetromino(blocks2);
+      displayNext();
+    }
   }
   
   public void clearRow(){    

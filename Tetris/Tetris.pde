@@ -130,3 +130,7 @@ public void mousePressed() {
   System.out.println(mouseX + "," + mouseY);
   //board.endGame();
 }*/
+public void mousePressed() {
+  System.out.println(mouseX + "," + mouseY);
+  //board.endGame();
+}
