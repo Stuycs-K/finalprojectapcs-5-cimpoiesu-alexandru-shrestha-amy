@@ -253,7 +253,7 @@ public class Game{
       for(int i = 0; i < 4; i++) {
          blocks3[i] = new Block(block2.getBlocks()[i].getX(), block2.getBlocks()[i].getY(), block2.getBlocks()[i].getColor());
       }
-      nextBlock = new Tetromino(blocks2);
+      nextBlock = new Tetromino(blocks3);
       displayNext();
     }
   }
@@ -335,7 +335,9 @@ public class Game{
     
     fill(color(0));
     textSize(30);
-    text("Game Over",125,315,100);
+    text("GAME OVER",110,315,100);
+    text("Your score is: ",100,345,80);
+    text(score,100,375,80);
     noLoop();
   }
   
