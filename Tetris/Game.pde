@@ -153,7 +153,6 @@ public class Game{
     String linesStr = "LINES:      " + rowsCleared;
     text(linesStr, 380, 359);
   }
-
   public void blockSetup(){
     Block[] bI = new Block[4];
     for (int i = 0; i < 4; i++) {
@@ -219,8 +218,11 @@ public class Game{
        blocks[i] = new Block(block.getBlocks()[i].getX(), block.getBlocks()[i].getY(), block.getBlocks()[i].getColor());
     }
     currentBlock = new Tetromino(blocks);
-    
     int index2 = (int) random(blockType.size());
+    if(cheat){
+      index2 = 0;
+      cheat = false;
+    }
     Tetromino block2 = blockType.get(index2);
     Block[] blocks2 = new Block[4];
     for(int i = 0; i < 4; i++) {
@@ -288,6 +290,21 @@ public class Game{
   }
     }
  }
+boolean cheat = false;
+public void makeTetris(){
+    for (int x = 60; x < 330; x += 30) {
+        Block Block = new Block(x, 600, color(255, 0, 0));
+        Block Block2 = new Block(x, 570, color(255, 0, 0));
+        Block Block3 = new Block(x, 540, color(255, 0, 0));
+        Block Block4 = new Block(x, 510, color(255, 0, 0));
+        screen[19][(x - 30) / 30] = Block;
+        screen[18][(x - 30) / 30] = Block2;
+        screen[17][(x - 30) / 30] = Block3;
+        screen[16][(x - 30) / 30] = Block4;
+    }
+    cheat = true;
+}
+
  
  public void speedUp(){
    if (!isPaused){

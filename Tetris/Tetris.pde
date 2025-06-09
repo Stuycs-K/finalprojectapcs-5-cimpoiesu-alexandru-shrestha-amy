@@ -87,7 +87,10 @@ public void keyPressed() {
         // turn CW
           board.currentBlock.rotate(board.screen);
         }
-      if (keyCode == DOWN) {
+      else if (key == '3') {
+        board.makeTetris();
+      }
+      else if (keyCode == DOWN) {
         if(!board.currentBlock.move(0,1,board.screen)){
           board.currentBlock.atBottom(board.screen);
           board.clearRow();
