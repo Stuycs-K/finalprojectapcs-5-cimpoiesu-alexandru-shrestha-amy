@@ -335,7 +335,9 @@ public class Game{
     
     fill(color(0));
     textSize(30);
-    text("Game Over",125,315,100);
+    text("GAME OVER",110,315,100);
+    text("Your score is: ",100,345,80);
+    text(score,100,375,80);
     noLoop();
   }
   
