@@ -271,6 +271,7 @@ public class Game{
     if(full){
        score += 100 * level;
        rowsCleared++;
+       if(rowsCleared % 10 == 0) level++;
        for(int i = r; i > 0; i--){
          for(int j = 0; j < 10; j++){
            screen[i][j] = screen[i-1][j];
