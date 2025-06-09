@@ -253,7 +253,7 @@ public class Game{
       for(int i = 0; i < 4; i++) {
          blocks3[i] = new Block(block2.getBlocks()[i].getX(), block2.getBlocks()[i].getY(), block2.getBlocks()[i].getColor());
       }
-      nextBlock = new Tetromino(blocks2);
+      nextBlock = new Tetromino(blocks3);
       displayNext();
     }
   }
@@ -265,7 +265,7 @@ public class Game{
       for (int c = 0; c < 10; c++) {
         if (screen[r][c]==null) {
           full = false;
-          return;
+          break;
         }
       }
     if(full){
@@ -282,8 +282,8 @@ public class Game{
        for(int col = 0; col < 10; col++){
           screen[0][col] = null; 
        }
-       r++;
-    }
+      r++;
+   }
   }
     }
  }
