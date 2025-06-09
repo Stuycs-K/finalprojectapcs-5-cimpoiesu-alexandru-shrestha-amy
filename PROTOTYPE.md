@@ -44,6 +44,7 @@ Classes:
 - draw: continuously draw on the screen; updates ~whenever block moves~ block motion and actions on screen
 - keyPressed: ~moves the current block in Game when keyPressed~ check for cheats; moves left/right/accelerate (down)/rotate (up) based on key
 - mousePressed: checks for pause
+- restartGame: creates a new game board, resets all progress
 
 2. Block
 - display: shows block on screen
