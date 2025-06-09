@@ -30,3 +30,5 @@ Added a color attribute to blocks which made it so that each Tetromino can have 
 Fixed NextBlock going out of its box (being able to move when it should be frozen) (40 minutes).
 ### 2025-06-08 - Bug fixing
 Fixed a stack overflow error while spawning the tetrominos and also made a bug fix with clearing rows that made clear rows for multiple at once work everytime (it was inconsistent earlier). Also made it so that you can't rotate the O block and also added a button so you can restart the game. (2 hours 40 minutes)
+
+I believe this document accurately reflects the contributions of my teamate. - Amy Shrestha
