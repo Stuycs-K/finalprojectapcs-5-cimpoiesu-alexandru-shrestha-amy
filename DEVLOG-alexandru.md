@@ -2,7 +2,7 @@
 
 This document must be updated daily every time you finish a work session.
 
-## Alexandru Cimpoiesu!
+## Alexandru Cimpoiesu
 
 ### 2025-05-16 - Wrote Proposals
 Wrote the proposals for Tetris, chess and solitaire, writing descriptions for them and putting links to websites we would be modeling our designs off of. (40 minutes)
