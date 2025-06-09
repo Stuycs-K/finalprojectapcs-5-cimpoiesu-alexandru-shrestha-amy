@@ -43,3 +43,5 @@ Added lines cleared (rowsCleared) on visual interface, fixed score increase and 
 ### 2025-06-04 to 2025-06-05 - Mechanics
 Fixing score/level increases, block colors, endGame() text, added cheats for increasing/decreasing level (with appropriate increasing/decreasing speeds), set a win function.
 
+
+Alexandru Cimpoiesu - I believe this document accurately reflects the contributions of my teamate.
