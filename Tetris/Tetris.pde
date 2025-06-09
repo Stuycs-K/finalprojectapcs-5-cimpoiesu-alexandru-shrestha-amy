@@ -79,7 +79,13 @@ void draw(){
   }
   board.getBlockArray(0).display(); */
 }
-  
+
+void restartGame(){
+    board = new Game();
+    setup();
+}
+
+
 public void keyPressed() {
   board.cheatLevel();
   if (!board.getPause()){
@@ -128,6 +134,9 @@ public void keyReleased(){
 public void mousePressed() {
   if (mouseX >= 510 && mouseX <= 545 && mouseY >= 590 && mouseY <= 625) {
     board.pause();
+  }
+  if (mouseX >= 510 && mouseX <= 545 && mouseY >= 540 && mouseY <= 580){
+   restartGame(); 
   }
   //System.out.println(mouseX + "," + mouseY);
 }

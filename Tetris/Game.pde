@@ -128,6 +128,12 @@ public class Game{
     line(523, 600, 523, 615);
     line(532, 600, 532, 615);
    
+    // restart button
+    rect(510, 545, 35, 35);
+    fill(0);
+    textSize(16);
+    text("R", 523, 567);
+   
     if(currentBlock != null){
       currentBlock.display();
     }
