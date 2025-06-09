@@ -5,7 +5,7 @@ private Game board = new Game();
 void setup(){
   size(580,660);
   background(255);
-  println("To activate cheat: 1 (level up), 2 (level down)");
+  println("To activate cheat: 1 (level up), 2 (level down), 3 (4-block combo)");
   // possible start screen
   //startGame();
 }
