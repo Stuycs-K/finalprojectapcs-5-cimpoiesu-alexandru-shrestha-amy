@@ -41,6 +41,34 @@ public class Tetromino {
     }
   }
   
+public boolean rotate(Block[][] grid) {
+    if (blocks[0].getColor() == color(255, 255, 0)) {
+       return false;
+    }
+    int index = 1;
+    Block pivot = blocks[index];
+    Block[] rotated = new Block[4];
+    for (int i = 0; i < blocks.length; i++){
+        Block block = blocks[i];
+        if (i == index) {
+            rotated[i] = new Block(block.x, block.y, color(0, 0, 0));
+            continue;
+        }
+        int rotatedX = pivot.x + (block.y - pivot.y);
+        int rotatedY = pivot.y -(block.x - pivot.x);
+        if (!inBounds(rotatedX, rotatedY) || grid[(rotatedY - 30) / block.getSize()][(rotatedX - 30) / block.getSize()] != null) {
+            return false;
+        }
+        rotated[i] = new Block(rotatedX, rotatedY, color(0, 0, 0));
+    }
+    for (int i = 0; i < blocks.length; i++) {
+        blocks[i].x = rotated[i].x;
+        blocks[i].y = rotated[i].y;
+    }
+    return true;
+}
+
+  
   public Block[] getBlocks() {
     return blocks;
   }
@@ -68,6 +96,11 @@ public class Tetromino {
    }
    return true;
   }
+  
+  public boolean inBounds(int x, int y) {
+    return x < 330 && x >= 30 && y >= 30 && y < 630;
+  }
+
   
   public int accelerate(int num) {
     int times = 0;

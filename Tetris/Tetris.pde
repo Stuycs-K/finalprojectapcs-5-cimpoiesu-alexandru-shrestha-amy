@@ -83,17 +83,14 @@ void draw(){
 public void keyPressed() {
   board.cheatLevel();
   if (!board.getPause()){
-  /*
       if (keyCode == UP) {
         // turn CW
-        for (int f = 0; f < 4; f++) {
-          // FIX TURNING FOR THE TETROMINO
-          // because the position of the block needs to be moved not just the angle
-          board.getBlockArray(i).getBlocks()[f].turn();
+          board.currentBlock.rotate(board.screen);
         }
+      else if (key == '3') {
+        board.makeTetris();
       }
-      */
-      if (keyCode == DOWN) {
+      else if (keyCode == DOWN) {
         if(!board.currentBlock.move(0,1,board.screen)){
           board.currentBlock.atBottom(board.screen);
           board.clearRow();
