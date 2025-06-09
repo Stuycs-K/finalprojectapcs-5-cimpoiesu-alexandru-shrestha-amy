@@ -41,7 +41,9 @@ Fixing bugs and visual interface (game screen, end screen). Modified code so nex
 Added lines cleared (rowsCleared) on visual interface, fixed score increase and block randomization for first block. Spend approx. 40 minutes.
 
 ### 2025-06-04 to 2025-06-05 - Mechanics
-Fixing score/level increases, block colors, endGame() text, added cheats for increasing/decreasing level (with appropriate increasing/decreasing speeds), set a win function.
+Fixing score/level increases, block colors, endGame() text, added cheats for increasing/decreasing level (with appropriate increasing/decreasing speeds), set a win function. Spend approx. 40 minutes.
 
+### 2025-06-06 to 2025-06-08 - Fixing Text Overlaps, Update PROTOTYPE.md and README.md
+Fixed visual of text for paused screen and game over screen. Update PROTOTYPE.md and UML diagram to match finished product, updating methods and instance variables. Update README.md based on added features. Spend approx. 60 minutes.
 
 Alexandru Cimpoiesu - I believe this document accurately reflects the contributions of my teamate.
