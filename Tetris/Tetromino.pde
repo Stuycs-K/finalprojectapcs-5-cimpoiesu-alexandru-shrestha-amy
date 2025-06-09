@@ -42,6 +42,9 @@ public class Tetromino {
   }
   
 public boolean rotate(Block[][] grid) {
+    if (blocks[0].getColor() == color(255, 255, 0)) {
+       return false;
+    }
     int index = 1;
     Block pivot = blocks[index];
     Block[] rotated = new Block[4];
