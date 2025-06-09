@@ -12,11 +12,11 @@ Right arrow key - Move the current block right one space
 Up arrow key - Rotate the current block clockwise by 90 degrees  
 Down arrow key - Accelerates the current block  
 
-**Cheat Codes:**
+**Cheat Codes:**  
 "1" key - level up (speed up blocks, will not change score or lines)  
 "2" key - level down (speed down blocks, will not change score or lines)  
 "3" key - setup for a 4-block combo  
 
-**Buttons:**
+**Buttons:**  
 Pause - pauses the blocks in the program, cannot use keys  
 Restart - restart all progress (only works before game over screen)
